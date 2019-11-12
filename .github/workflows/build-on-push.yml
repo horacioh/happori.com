@@ -1,8 +1,8 @@
 name: Build on push
 on:
   push:
-    paths:
-      - "site/**"
+    paths-ignore:
+      - ".github/**"
 jobs:
   build:
     runs-on: ubuntu-latest
