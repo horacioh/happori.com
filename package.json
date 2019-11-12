@@ -1,0 +1,18 @@
+{
+  "name": "happori",
+  "version": "0.1.0",
+  "description": "happori website",
+  "main": "index.js",
+  "author": "Horacio Herrera <hi@horacioh.com>",
+  "license": "MIT",
+  "scripts": {
+    "start": "yarn workspace site start",
+    "develop": "yarn workspace site develop",
+    "build": "yarn workspace site build"
+  },
+  "repository": {
+    "url": "https://github.com/horacioh/happori"
+  },
+  "private": true,
+  "workspaces": ["site"]
+}

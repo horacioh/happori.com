@@ -1,0 +1,25 @@
+{
+  "name": "site",
+  "version": "0.1.0",
+  "description": "website code",
+  "main": "index.js",
+  "author": "Horacio Herrera <hi@horacioh.com>",
+  "license": "MIT",
+  "private": false,
+  "scripts": {
+    "start": "yarn develop -o",
+    "develop": "gatsby develop",
+    "build": "gatsby build"
+  },
+  "dependencies": {
+    "gatsby": "^2.17.11",
+    "react": "^16.11.0",
+    "react-dom": "^16.11.0"
+  },
+  "devDependencies": {
+    "dotenv": "^8.2.0"
+  },
+  "repository": {
+    "url": "https://github.com/horacioh/happori"
+  }
+}
