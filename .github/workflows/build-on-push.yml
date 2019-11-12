@@ -2,7 +2,7 @@ name: Build on push
 on:
   push:
     paths:
-      - "!.github/**"
+      - "site/**"
 jobs:
   build:
     runs-on: ubuntu-latest
