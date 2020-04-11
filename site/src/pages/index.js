@@ -25,7 +25,7 @@ export default function Landing() {
               primer colección de calcetines.
             </p>
             <p className="mt-6 text-primary-hover">
-              <b>Déjanos tu mail</b> y sé el primero en tener unos Happori.
+              <b>Déjanos tu mail</b> y sé uno de los primer@s en tener unos Happori.
             </p>
             <Form />
           </div>
