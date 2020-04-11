@@ -1,0 +1,13 @@
+/* purgecss start ignore */
+@tailwind base;
+@tailwind components;
+/* purgecss end ignore */
+
+@tailwind utilities;
+
+:root {
+  --color-primary: #423b0b;
+  --color-primary-hover: #474935;
+  --color-secondary: #98cbb4;
+  --color-secondary-hover: #b5fed9;
+}
