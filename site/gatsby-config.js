@@ -1,6 +1,11 @@
 const path = require("path")
 
 module.exports = {
+  siteMetadata: {
+    title: "Happori",
+    siteUrl: "https://happori.com",
+    description: "Amantes de los calcetines diferentes y preocupados cada vez más por el medioambiente y la sostenibilidad para preservar nuestros planeta nace la idea de Happori"
+  },
   plugins: [
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-emotion`,
