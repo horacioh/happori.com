@@ -73,3 +73,6 @@ yarn-error.log
 credentials.json
 
 
+
+# Local Netlify folder
+.netlify

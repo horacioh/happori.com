@@ -15,4 +15,5 @@ jobs:
         run: |
           yarn
           yarn build
+          npx netlify-cli --telemetry-disable
           npx netlify-cli deploy --dir=site/public --prod
