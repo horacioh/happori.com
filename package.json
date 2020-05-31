@@ -6,6 +6,7 @@
   "author": "Horacio Herrera <hi@horacioh.com>",
   "license": "MIT",
   "scripts": {
+    "start": "yarn develop",
     "develop": "yarn workspace site develop",
     "build": "yarn workspace site build"
   },
