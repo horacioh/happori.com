@@ -1,4 +1,6 @@
-import "./src/styles/main.css"
+import React from "react";
+import "./src/styles/main.css";
+import { AppProviders } from "./src/components/app-providers";
 
 // export const onClientEntry = () => {
 //   // IntersectionObserver polyfill for gatsby-background-image (Safari, IE)
@@ -7,3 +9,7 @@ import "./src/styles/main.css"
 //     console.log(`# IntersectionObserver is polyfilled!`)
 //   }
 // }
+
+export function wrapRootElement({ element }) {
+  return <AppProviders>{element}</AppProviders>;
+}
