@@ -1,6 +1,6 @@
 import React from "react";
 import BackgroundImage from "gatsby-background-image";
-import { useStaticQuery } from "gatsby";
+import { useStaticQuery, graphql } from "gatsby";
 import { Container } from "./page-layout";
 
 export function SectionBackground({ className, children, ...props }) {

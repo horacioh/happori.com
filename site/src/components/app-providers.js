@@ -3,13 +3,13 @@ import { loadStripe } from "@stripe/stripe-js";
 import { CartProvider } from "use-shopping-cart";
 
 // const stripePromise = loadStripe(process.env.REACT_APP_STRIPE_API_PUBLIC);
-const stripePromise = loadStripe("pk_live_bXcFi9K28vbiW6n6IA94wbee006XduDtbm");
+const stripePromise = loadStripe(process.env.GATSBY_STRIPE_PUBLISHABLE_KEY);
 
 export function AppProviders(props) {
   return (
     <CartProvider
       stripe={stripePromise}
-      mode="client-only"
+      mode="checkout-session"
       successUrl="https://happori.com"
       cancelUrl="https://happori.com"
       currency="EUR"

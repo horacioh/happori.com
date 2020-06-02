@@ -8,10 +8,16 @@ import { SectionBackground } from "../components/background-header";
 import { useShoppingCart, formatCurrencyString } from "use-shopping-cart";
 
 const productData = [
+  // {
+  //   name: "Calcetin Solidario COVID-19",
+  //   sku: "price_HNZ8Y4x2cyAy7L",
+  //   price: 1450,
+  //   currency: "EUR",
+  // },
   {
-    name: "Calcetin Solidario COVID-19",
-    sku: "price_HNZ8Y4x2cyAy7L",
-    price: 1450,
+    name: "test",
+    sku: "price_HO6MD4eD2TX3Ca",
+    price: 1500,
     currency: "EUR",
   },
 ];
@@ -20,9 +26,31 @@ export default function CalcetinesSolidatios(props) {
   const {
     redirectToCheckout,
     clearCart,
-    cartCount,
+    // cartCount,
     totalPrice,
+    cartDetails,
   } = useShoppingCart();
+
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+
+    const response = await fetch("/api/checkout", {
+      method: "post",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(cartDetails),
+    })
+      .then((res) => {
+        console.log("handleSubmit -> res", res);
+        return res.json();
+      })
+      .catch((error) => console.log(error));
+    console.log("response => ", response);
+
+    redirectToCheckout({ sessionId: response.sessionId });
+  };
+
   return (
     <MainLayout>
       <SectionBackground>
@@ -60,10 +88,11 @@ export default function CalcetinesSolidatios(props) {
           </p>
           <button
             className="flex-1 p-4 mt-4 rounded bg-green-500 hover:bg-green-400 transition transform duration-100 text-black text-sm font-bold uppercase"
-            onClick={() => redirectToCheckout()}
+            onClick={handleSubmit}
           >
             Comprar
           </button>
+          <pre>{JSON.stringify(cartDetails, null, 4)}</pre>
         </div>
         <div>
           <button
