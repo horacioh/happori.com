@@ -11,17 +11,7 @@ const validateCartItems = require("use-shopping-cart/src/serverUtil")
  * so you know the pricing information is accurate.
  */
 
-// const inventory = require('./data/products.json')
-const inventory = [
-  {
-    name: "test",
-    description: "testing",
-    sku: "price_HO6MD4eD2TX3Ca",
-    price: 1500,
-    image: "https: //www.fillmurray.com/300/300",
-    currency: "EUR",
-  },
-];
+const inventory = require("./data/products.json");
 
 exports.handler = async ({ body }) => {
   try {
@@ -40,10 +30,10 @@ exports.handler = async ({ body }) => {
        * other environment variables Netlify exposes:
        * https://docs.netlify.com/configure-builds/environment-variables/
        */
-      // success_url: `${process.env.URL}/success.html`,
-      success_url: `https://happori.com/success.html`,
-      // cancel_url: process.env.URL,
-      cancel_url: `https://happori.com/calcetines-solidarios/`,
+      success_url: `${process.env.URL}/success/`,
+      // success_url: `https://happori.com/success/`,
+      cancel_url: process.env.URL,
+      // cancel_url: `https://happori.com/calcetines-solidarios/`,
       line_items,
     });
     return {

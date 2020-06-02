@@ -7,7 +7,6 @@ export function CallOut(props) {
   React.useEffect(() => {
     setTimeout(() => {
       setShow(true);
-      console.log("llamada");
     }, 500);
   }, []);
   return (

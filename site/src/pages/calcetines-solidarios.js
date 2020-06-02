@@ -6,21 +6,7 @@ import { MainMenu } from "../components/page-menu";
 import { Product } from "../components/product";
 import { SectionBackground } from "../components/background-header";
 import { useShoppingCart, formatCurrencyString } from "use-shopping-cart";
-
-const productData = [
-  // {
-  //   name: "Calcetin Solidario COVID-19",
-  //   sku: "price_HNZ8Y4x2cyAy7L",
-  //   price: 1450,
-  //   currency: "EUR",
-  // },
-  {
-    name: "test",
-    sku: "price_HO6MD4eD2TX3Ca",
-    price: 1500,
-    currency: "EUR",
-  },
-];
+import productData from "../../functions/data/products.json";
 
 export default function CalcetinesSolidatios(props) {
   const {
@@ -41,12 +27,8 @@ export default function CalcetinesSolidatios(props) {
       },
       body: JSON.stringify(cartDetails),
     })
-      .then((res) => {
-        console.log("handleSubmit -> res", res);
-        return res.json();
-      })
-      .catch((error) => console.log(error));
-    console.log("response => ", response);
+      .then((res) => res.json())
+      .catch((error) => console.error(error));
 
     redirectToCheckout({ sessionId: response.sessionId });
   };
@@ -92,7 +74,6 @@ export default function CalcetinesSolidatios(props) {
           >
             Comprar
           </button>
-          <pre>{JSON.stringify(cartDetails, null, 4)}</pre>
         </div>
         <div>
           <button

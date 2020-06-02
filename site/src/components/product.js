@@ -4,7 +4,6 @@ import Image from "gatsby-image";
 import { useShoppingCart, formatCurrencyString } from "use-shopping-cart";
 
 export function Product({ className, ...props }) {
-  console.log("props => ", props);
   const [count, setCount] = React.useState(1);
   const { addItem } = useShoppingCart();
   const image = useStaticQuery(graphql`
@@ -31,6 +30,8 @@ export function Product({ className, ...props }) {
       <div className="flex items-center mt-2">
         <input
           className="px-4 py-2 outline-none font-bold border-orange-500 border-2"
+          min={1}
+          max={100}
           type="number"
           value={count}
           onChange={(e) => setCount(e.target.value)}
@@ -40,7 +41,6 @@ export function Product({ className, ...props }) {
           className="px-4 py-2 bg-orange-500 hover:bg-orange-600 transition transform duration-100 text-black text-sm font-bold uppercase flex-1"
           style={{ minHeight: 44 }}
           onClick={() => {
-            console.log("add!!");
             addItem(props, count);
           }}
         >
