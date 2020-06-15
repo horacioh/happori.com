@@ -10,8 +10,6 @@ export function AppProviders(props) {
     <CartProvider
       stripe={stripePromise}
       mode="checkout-session"
-      successUrl="https://happori.com"
-      cancelUrl="https://happori.com"
       currency="EUR"
       allowedCountries={["ES"]}
       billingAddressCollection={true}

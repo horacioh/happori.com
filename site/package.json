@@ -6,7 +6,8 @@
   "scripts": {
     "prebuild": "cd ./functions && yarn install && cd ../",
     "build": "gatsby build",
-    "develop": "gatsby develop -p 8008",
+    "develop": "netlify dev",
+    "startfront": "gatsby develop -p 8008",
     "format": "prettier --write \"**/*.{js,jsx,json,md}\"",
     "start": "npm run develop",
     "serve": "gatsby serve",

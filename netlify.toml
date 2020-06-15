@@ -1,9 +1,9 @@
 [build]
   functions = "site/functions"
 
-[dev] 
+[dev]  
   framework = "#custom"
-  command = "yarn develop" # Command to start your dev server
+  command = "yarn startfront" # Command to start your dev server
   targetPort = 8008 # port the app runs on
   port = 8000 # port Netlify Dev runs on
   # functionsPort = 34568

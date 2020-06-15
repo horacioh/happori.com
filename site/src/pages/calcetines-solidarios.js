@@ -11,11 +11,13 @@ import productData from "../../functions/data/products.json";
 export default function CalcetinesSolidatios(props) {
   const {
     redirectToCheckout,
+
     clearCart,
     // cartCount,
     totalPrice,
     cartDetails,
   } = useShoppingCart();
+  console.log("CalcetinesSolidatios -> redirectToCheckout", redirectToCheckout);
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -27,8 +29,12 @@ export default function CalcetinesSolidatios(props) {
       },
       body: JSON.stringify(cartDetails),
     })
-      .then((res) => res.json())
-      .catch((error) => console.error(error));
+      .then((res) => {
+        console.log("handleSubmit -> res", res);
+
+        return res.json();
+      })
+      .catch((error) => console.error(`ERRORR!!! => ${error}`));
 
     redirectToCheckout({ sessionId: response.sessionId });
   };
@@ -36,26 +42,23 @@ export default function CalcetinesSolidatios(props) {
   return (
     <MainLayout>
       <SectionBackground>
-        <MainMenu />
+        <MainMenu dark />
         <div className="mt-32">
           <Heading1>
-            <span
-              className="text-2xl block text-primary"
-              style={{ fontWeight: "300" }}
-            >
-              Calcet&iacute;n Solidario.
-            </span>
-            <span className="text-primary">Saldremos de esta.</span>
+            <span className="text-primary">Sí, saldremos de esta.</span>
           </Heading1>
-          <p className="mt-10 w-full max-w-2xl mb-0 text-xl font-light text-primary mx-auto">
+          {/* <p className="mt-10 w-full max-w-2xl mb-0 text-xl font-light text-primary mx-auto">
             tagline para calcetines solidarios.{" "}
             <b className="font-bold">De tu ropa hacemos tu ropa.</b>
-          </p>
+          </p> */}
         </div>
       </SectionBackground>
       <Section className="text-center">
         <p className="mt-10 first:mt-0 w-full mx-auto max-w-2xl mb-0 text-xl font-light text-primary-hover">
-          Algo de contenido aqui
+          Detrás de Happori estamos Horacio y David. Dos amigos que comparten el
+          amor por los calcetines y la visión de un mundo más justo, más
+          equitativo, mejor. Cualquier gran movimiento empieza siempre desde
+          abajo y desde los pequeños cambios.
         </p>
         {productData.map((p) => (
           <Product {...p} />

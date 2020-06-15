@@ -27,7 +27,7 @@ const components = {
       {...props}
     />
   ),
-  b: (props) => <b className="font-bold" {...props} />,
+  strong: (props) => <span className="font-bold" {...props} />,
 };
 
 export function MainLayout({ children }) {

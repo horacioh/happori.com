@@ -6,7 +6,6 @@ Coming soon... [info@happori.com](mailto:info@happori.com)
 
 testing 1
 
-
 ## Ecommerce
 
 - index
@@ -15,3 +14,12 @@ testing 1
 - producto/id
 - about
 - contacto
+
+## Development
+
+```bash
+git clone
+cd happori.com
+yarn install
+yarn develop
+```

@@ -2,21 +2,25 @@ import React from "react";
 import Logo from "./logo";
 import { Link } from "gatsby";
 
-export function MainMenu(props) {
+export function MainMenu({ dark = false, ...props }) {
   return (
     <div className="flex flex-col md:flex-row items-center md:justify-between">
       <Link to="/">
         <Logo width="200" />
       </Link>
-      <MainNav />
+      <MainNav dark={dark} />
     </div>
   );
 }
 
-export function MainNav() {
+export function MainNav({ dark = false, ...props }) {
   return (
-    <nav className="py-4 md:py-0">
-      <ul className="flex items-baseline">
+    <nav
+      className={`py-4 md:py-0 box-border rounded mt-4 md:mt-0 ${
+        dark ? "bg-secondary" : "bg-transparent"
+      }`}
+    >
+      <ul className="flex items-baseline p-0 md:p-4">
         {/* <li className="mx-2">
             <Link className="text-xs uppercase font-light px-2 py-1 rounded hover:bg-primary-hover hover:text-white transform transition duration-100 md:px-4 md:py-2">
               productos
@@ -26,7 +30,9 @@ export function MainNav() {
           <Link
             to="/nosotros/"
             activeClassName="bg-primary-hover text-white"
-            className="text-xs uppercase font-light px-2 py-1 rounded hover:bg-primary-hover hover:text-white transform transition duration-100 md:px-4 md:py-2"
+            className={`text-xs uppercase font-light px-2 py-1 rounded hover:bg-primary-hover hover:text-white transform transition duration-100 md:px-4 md:py-2 ${
+              dark ? "text-white" : ""
+            }`}
           >
             nosotros
           </Link>
@@ -35,7 +41,9 @@ export function MainNav() {
           <Link
             to="/contacto/"
             activeClassName="bg-primary-hover text-white"
-            className="text-xs uppercase font-light px-2 py-1 rounded hover:bg-primary-hover hover:text-white transform transition duration-100 md:px-4 md:py-2"
+            className={`text-xs uppercase font-light px-2 py-1 rounded hover:bg-primary-hover hover:text-white transform transition duration-100 md:px-4 md:py-2 ${
+              dark ? "text-white" : ""
+            }`}
           >
             contacto
           </Link>

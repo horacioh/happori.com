@@ -14,6 +14,7 @@ const validateCartItems = require("use-shopping-cart/src/serverUtil")
 const inventory = require("./data/products.json");
 
 exports.handler = async ({ body }) => {
+  console.log("entro a la function!");
   try {
     const productJSON = JSON.parse(body);
 
@@ -41,6 +42,7 @@ exports.handler = async ({ body }) => {
       body: JSON.stringify({ sessionId: session.id }),
     };
   } catch (error) {
+    console.log("entro en el catch de la funcion!!", error);
     console.error(error);
   }
 };
