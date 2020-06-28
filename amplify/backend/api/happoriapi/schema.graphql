@@ -1,0 +1,19 @@
+input SubmitContactInput {
+  name: String!
+  email: AWSEmail!
+  comment: String
+}
+
+type Todo @model {
+  done: Boolean!
+  text: String!
+}
+
+type Query {
+  allTodos: [Todo]
+}
+
+type Mutation {
+  submitContact(input: SubmitContactInput): AWSJSON
+    @function(name: "contactform-${env}")
+}

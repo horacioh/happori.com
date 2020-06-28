@@ -15,6 +15,7 @@
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
   },
   "dependencies": {
+    "@aws-amplify/ui-react": "^0.2.9",
     "@emotion/core": "^10.0.28",
     "@emotion/styled": "^10.0.27",
     "@fullhuman/postcss-purgecss": "^2.1.2",
@@ -22,6 +23,7 @@
     "@mdx-js/react": "^1.6.5",
     "@stripe/stripe-js": "^1.5.0",
     "autoprefixer": "^9.7.6",
+    "aws-amplify": "^3.0.18",
     "gatsby": "^2.20.12",
     "gatsby-background-image": "^1.0.1",
     "gatsby-background-image-es5": "^1.0.1",

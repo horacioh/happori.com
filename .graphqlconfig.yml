@@ -1,0 +1,15 @@
+projects:
+  happoriapi:
+    schemaPath: site/src/graphql/schema.json
+    includes:
+      - site/src/graphql/**/*.js
+    excludes:
+      - ./amplify/**
+    extensions:
+      amplify:
+        codeGenTarget: javascript
+        generatedFileName: ''
+        docsFilePath: site/src/graphql
+extensions:
+  amplify:
+    version: 3

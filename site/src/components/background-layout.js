@@ -1,6 +1,6 @@
 import React from "react"
 import BackgroundImage from "gatsby-background-image"
-import { useStaticQuery } from "gatsby"
+import { useStaticQuery, graphql } from "gatsby"
 
 export default function BackgroundCover({ className, children, ...props }) {
   const { mobileImage, desktopImage } = useStaticQuery(

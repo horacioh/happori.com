@@ -56,7 +56,10 @@ export default function LandingForm() {
       </div>
       {success ? (
         <p className="mt-6 text-xl font-bold text-primary-hover">
-          Gracias por registrarte! <span role="img" aria-label="thumbs up emoji">👍</span>
+          Gracias por registrarte!{" "}
+          <span role="img" aria-label="thumbs up emoji">
+            👍
+          </span>
         </p>
       ) : (
         <button

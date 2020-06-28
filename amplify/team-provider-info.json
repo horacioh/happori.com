@@ -1,0 +1,15 @@
+{
+    "dev": {
+        "awscloudformation": {
+            "AuthRoleName": "amplify-happoricom-dev-224404-authRole",
+            "UnauthRoleArn": "arn:aws:iam::115238827609:role/amplify-happoricom-dev-224404-unauthRole",
+            "AuthRoleArn": "arn:aws:iam::115238827609:role/amplify-happoricom-dev-224404-authRole",
+            "Region": "eu-west-1",
+            "DeploymentBucketName": "amplify-happoricom-dev-224404-deployment",
+            "UnauthRoleName": "amplify-happoricom-dev-224404-unauthRole",
+            "StackName": "amplify-happoricom-dev-224404",
+            "StackId": "arn:aws:cloudformation:eu-west-1:115238827609:stack/amplify-happoricom-dev-224404/1f6a7c80-b4c9-11ea-a204-02078729aa3e",
+            "AmplifyAppId": "d14m0bimknmist"
+        }
+    }
+}

@@ -1,22 +1,34 @@
-import React from "react";
-import { useForm } from "react-hook-form";
+import React from "react"
+import { useForm } from "react-hook-form"
+import { submitContact } from "../graphql/mutations"
+import { API, graphqlOperation } from "aws-amplify"
 
 export function ContactForm() {
-  const [success, setSuccess] = React.useState(false);
+  const [success, setSuccess] = React.useState(false)
   const { register, handleSubmit, errors } = useForm({
     mode: "onChange",
-  });
+  })
 
   async function onSubmit(data) {
-    await fetch("https://api.formik.com/submit/happoricom/contact-form", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(data),
-    });
+    // await fetch("https://api.formik.com/submit/happoricom/contact-form", {
+    //   method: "POST",
+    //   headers: {
+    //     "Content-Type": "application/json",
+    //   },
+    //   body: JSON.stringify(data),
+    // })
 
-    setSuccess(true);
+    // setSuccess(true)
+    try {
+      await API.graphql(
+        graphqlOperation(submitContact, {
+          input: data,
+        })
+      )
+      setSuccess(true)
+    } catch (err) {
+      throw new Error(err)
+    }
   }
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="w-full mt-8 max-w-2xl">
@@ -85,5 +97,5 @@ export function ContactForm() {
         </button>
       )}
     </form>
-  );
+  )
 }
