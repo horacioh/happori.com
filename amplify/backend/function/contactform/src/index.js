@@ -11,7 +11,6 @@ exports.handler = (event, _, callback) => {
       data: event.arguments.input,
     })
       .then(function(response) {
-        console.log(response)
         callback(null, response.data)
       })
       .catch((err) => callback(err))

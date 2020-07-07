@@ -1,15 +1,15 @@
-import React from "react";
-import { MDXProvider } from "@mdx-js/react";
-import { CovidCallout } from "./callout";
-import { MainNav } from "./page-menu";
-import { AboutHeader } from "./about-header";
-import { TitleSection } from "./contact-header";
-import { Heading1 } from "./headings";
-import { Link } from "./link";
-import { Instagram, Twitter, Facebook } from "react-feather";
+import React from "react"
+import { MDXProvider } from "@mdx-js/react"
+import { CovidCallout } from "./callout"
+import { MainNav } from "./page-menu"
+import { AboutHeader } from "./about-header"
+import { TitleSection } from "./contact-header"
+import { Heading1 } from "./headings"
+import { Link } from "./link"
+import { Instagram, Twitter, Facebook } from "react-feather"
 
 export function Container(props) {
-  return <div className="mx-auto w-full max-w-4xl" {...props} />;
+  return <div className="mx-auto w-full max-w-4xl" {...props} />
 }
 
 export function Section({ className, children, ...rest }) {
@@ -17,7 +17,7 @@ export function Section({ className, children, ...rest }) {
     <div className={`py-20 px-4 md:px-8 relative ${className}`} {...rest}>
       <Container>{children}</Container>
     </div>
-  );
+  )
 }
 
 export function SocialMedia() {
@@ -42,7 +42,7 @@ export function SocialMedia() {
         <Facebook color="currentColor" />
       </Link>
     </div>
-  );
+  )
 }
 
 const components = {
@@ -58,7 +58,7 @@ const components = {
   ),
   strong: (props) => <span className="font-bold" {...props} />,
   a: (props) => <Link {...props} />,
-};
+}
 
 export function MainLayout({ children }) {
   return (
@@ -66,7 +66,7 @@ export function MainLayout({ children }) {
       {children}
       <PageFooter />
     </MDXProvider>
-  );
+  )
 }
 
 export function AboutLayout({ children }) {
@@ -77,11 +77,11 @@ export function AboutLayout({ children }) {
       <Section>{children}</Section>
       <PageFooter />
     </MDXProvider>
-  );
+  )
 }
 
 export function PageLayout({ children, pageContext: { frontmatter } }) {
-  const { title } = frontmatter;
+  const { title } = frontmatter
   return (
     <MDXProvider components={components}>
       <CovidCallout />
@@ -93,11 +93,11 @@ export function PageLayout({ children, pageContext: { frontmatter } }) {
       <Section>{children}</Section>
       <PageFooter />
     </MDXProvider>
-  );
+  )
 }
 
 export function ContactLayout({ children, ...props }) {
-  console.log("ContactLayout -> props", props);
+  console.log("ContactLayout -> props", props)
   return (
     <MDXProvider components={components}>
       <CovidCallout />
@@ -117,7 +117,7 @@ export function ContactLayout({ children, ...props }) {
       <Section>{children}</Section>
       <PageFooter />
     </MDXProvider>
-  );
+  )
 }
 
 export function PageFooter(props) {
@@ -131,5 +131,5 @@ export function PageFooter(props) {
         Todos los derechos reservados
       </p>
     </Section>
-  );
+  )
 }

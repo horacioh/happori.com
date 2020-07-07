@@ -4,13 +4,58 @@ input SubmitContactInput {
   comment: String
 }
 
-type Todo @model {
-  done: Boolean!
-  text: String!
+enum Currency {
+  EUR
+}
+
+type Product
+  @model
+  @key(
+    name: "byText"
+    fields: ["name", "description"]
+    queryField: "productByText"
+  ) {
+  id: ID!
+  name: String!
+  description: String
+  sku: String
+  price: Float!
+  image: S3Object
+  currency: Currency
+  collections: [ProductCollection]
+    @connection(keyName: "byProduct", fields: ["id"])
+}
+
+type S3Object {
+  bucket: String!
+  region: String!
+  key: String!
+}
+
+type ProductCollection
+  @model(queries: null)
+  @key(name: "byCollection", fields: ["collectionID", "productID"])
+  @key(name: "byProduct", fields: ["productID", "collectionID"]) {
+  id: ID!
+  productID: ID!
+  collectionID: ID!
+  product: Product! @connection(fields: ["productID"])
+  collection: Collection! @connection(fields: ["collectionID"])
+}
+
+type Collection
+  @model
+  @key(name: "byName", fields: ["name"], queryField: "collectionByName") {
+  id: ID!
+  name: String!
+  description: String
+  products: [ProductCollection]
+    @connection(keyName: "byCollection", fields: ["id"])
 }
 
 type Query {
-  allTodos: [Todo]
+  allProducts: [Product]
+  allCollections: [Collection]
 }
 
 type Mutation {

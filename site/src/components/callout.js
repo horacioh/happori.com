@@ -23,10 +23,10 @@ export function CovidCallout(props) {
   return (
     <CallOut>
       <span className="mx-4 font-semibold">
-        Compra nuestros calcetines solidarios! Edicion limitada
+        OFERTA!! (cambiar el texto aqui)
       </span>
       <Link
-        to="/calcetines-solidarios"
+        to="/"
         className="bg-blue-600 text-white px-4 py-2 rounded leading-none uppercase hover:bg-blue-800 transition duration-100 text-xs font-bold"
       >
         quiero comprarlos

@@ -1,0 +1,26 @@
+[
+  {
+    "name": "Happori",
+    "slug": "happori",
+    "description": "Calcetin con el logo de Happori",
+    "sku": "price_1GzTtcLx7jivaev6qDKuu98f",
+    "price": 1450,
+    "currency": "EUR"
+  },
+  {
+    "name": "Pachamama",
+    "slug": "pachamama",
+    "description": "Calcetin con el logo de Pachamama",
+    "sku": "price_1GzTtcLx7jivaev6qDKuu98f",
+    "price": 1450,
+    "currency": "EUR"
+  },
+  {
+    "name": "Tierra",
+    "slug": "tierra",
+    "description": "Calcetin con el logo de Tierrai",
+    "sku": "price_1GzTtcLx7jivaev6qDKuu98f",
+    "price": 1450,
+    "currency": "EUR"
+  }
+]

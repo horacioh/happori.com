@@ -10,7 +10,6 @@ import { CovidCallout } from "../components/callout"
 - header
   - logo
   - menu
-  - alert bar calcetin solidario
   - mensaje
   - bg image
 - productos
@@ -22,7 +21,7 @@ import { CovidCallout } from "../components/callout"
 export default function Index(props) {
   return (
     <MainLayout>
-      <CovidCallout />
+      {/* <CovidCallout /> */}
       <HomeHeader />
       <ProductsSection />
       <HomeAbout />

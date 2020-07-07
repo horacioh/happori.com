@@ -6,13 +6,16 @@
   "author": "Horacio Herrera <hi@horacioh.com>",
   "license": "MIT",
   "scripts": {
-    "start": "yarn develop",
     "develop": "yarn workspace site develop",
+    "dev": "yarn develop",
+    "start": "yarn develop",
     "build": "yarn workspace site build"
   },
   "repository": {
     "url": "https://github.com/horacioh/happori"
   },
   "private": true,
-  "workspaces": ["site"]
+  "workspaces": [
+    "site"
+  ]
 }

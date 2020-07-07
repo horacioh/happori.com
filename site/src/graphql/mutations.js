@@ -6,40 +6,295 @@ export const submitContact = /* GraphQL */ `
     submitContact(input: $input)
   }
 `;
-export const createTodo = /* GraphQL */ `
-  mutation CreateTodo(
-    $input: CreateTodoInput!
-    $condition: ModelTodoConditionInput
+export const createProduct = /* GraphQL */ `
+  mutation CreateProduct(
+    $input: CreateProductInput!
+    $condition: ModelProductConditionInput
   ) {
-    createTodo(input: $input, condition: $condition) {
-      done
-      text
+    createProduct(input: $input, condition: $condition) {
+      id
+      name
+      description
+      sku
+      price
+      image {
+        bucket
+        region
+        key
+      }
+      currency
+      collections {
+        items {
+          id
+          productID
+          collectionID
+          createdAt
+          updatedAt
+        }
+        nextToken
+      }
       createdAt
       updatedAt
     }
   }
 `;
-export const updateTodo = /* GraphQL */ `
-  mutation UpdateTodo(
-    $input: UpdateTodoInput!
-    $condition: ModelTodoConditionInput
+export const updateProduct = /* GraphQL */ `
+  mutation UpdateProduct(
+    $input: UpdateProductInput!
+    $condition: ModelProductConditionInput
   ) {
-    updateTodo(input: $input, condition: $condition) {
-      done
-      text
+    updateProduct(input: $input, condition: $condition) {
+      id
+      name
+      description
+      sku
+      price
+      image {
+        bucket
+        region
+        key
+      }
+      currency
+      collections {
+        items {
+          id
+          productID
+          collectionID
+          createdAt
+          updatedAt
+        }
+        nextToken
+      }
       createdAt
       updatedAt
     }
   }
 `;
-export const deleteTodo = /* GraphQL */ `
-  mutation DeleteTodo(
-    $input: DeleteTodoInput!
-    $condition: ModelTodoConditionInput
+export const deleteProduct = /* GraphQL */ `
+  mutation DeleteProduct(
+    $input: DeleteProductInput!
+    $condition: ModelProductConditionInput
   ) {
-    deleteTodo(input: $input, condition: $condition) {
-      done
-      text
+    deleteProduct(input: $input, condition: $condition) {
+      id
+      name
+      description
+      sku
+      price
+      image {
+        bucket
+        region
+        key
+      }
+      currency
+      collections {
+        items {
+          id
+          productID
+          collectionID
+          createdAt
+          updatedAt
+        }
+        nextToken
+      }
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const createProductCollection = /* GraphQL */ `
+  mutation CreateProductCollection(
+    $input: CreateProductCollectionInput!
+    $condition: ModelProductCollectionConditionInput
+  ) {
+    createProductCollection(input: $input, condition: $condition) {
+      id
+      productID
+      collectionID
+      product {
+        id
+        name
+        description
+        sku
+        price
+        image {
+          bucket
+          region
+          key
+        }
+        currency
+        collections {
+          nextToken
+        }
+        createdAt
+        updatedAt
+      }
+      collection {
+        id
+        name
+        description
+        products {
+          nextToken
+        }
+        createdAt
+        updatedAt
+      }
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const updateProductCollection = /* GraphQL */ `
+  mutation UpdateProductCollection(
+    $input: UpdateProductCollectionInput!
+    $condition: ModelProductCollectionConditionInput
+  ) {
+    updateProductCollection(input: $input, condition: $condition) {
+      id
+      productID
+      collectionID
+      product {
+        id
+        name
+        description
+        sku
+        price
+        image {
+          bucket
+          region
+          key
+        }
+        currency
+        collections {
+          nextToken
+        }
+        createdAt
+        updatedAt
+      }
+      collection {
+        id
+        name
+        description
+        products {
+          nextToken
+        }
+        createdAt
+        updatedAt
+      }
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const deleteProductCollection = /* GraphQL */ `
+  mutation DeleteProductCollection(
+    $input: DeleteProductCollectionInput!
+    $condition: ModelProductCollectionConditionInput
+  ) {
+    deleteProductCollection(input: $input, condition: $condition) {
+      id
+      productID
+      collectionID
+      product {
+        id
+        name
+        description
+        sku
+        price
+        image {
+          bucket
+          region
+          key
+        }
+        currency
+        collections {
+          nextToken
+        }
+        createdAt
+        updatedAt
+      }
+      collection {
+        id
+        name
+        description
+        products {
+          nextToken
+        }
+        createdAt
+        updatedAt
+      }
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const createCollection = /* GraphQL */ `
+  mutation CreateCollection(
+    $input: CreateCollectionInput!
+    $condition: ModelCollectionConditionInput
+  ) {
+    createCollection(input: $input, condition: $condition) {
+      id
+      name
+      description
+      products {
+        items {
+          id
+          productID
+          collectionID
+          createdAt
+          updatedAt
+        }
+        nextToken
+      }
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const updateCollection = /* GraphQL */ `
+  mutation UpdateCollection(
+    $input: UpdateCollectionInput!
+    $condition: ModelCollectionConditionInput
+  ) {
+    updateCollection(input: $input, condition: $condition) {
+      id
+      name
+      description
+      products {
+        items {
+          id
+          productID
+          collectionID
+          createdAt
+          updatedAt
+        }
+        nextToken
+      }
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const deleteCollection = /* GraphQL */ `
+  mutation DeleteCollection(
+    $input: DeleteCollectionInput!
+    $condition: ModelCollectionConditionInput
+  ) {
+    deleteCollection(input: $input, condition: $condition) {
+      id
+      name
+      description
+      products {
+        items {
+          id
+          productID
+          collectionID
+          createdAt
+          updatedAt
+        }
+        nextToken
+      }
       createdAt
       updatedAt
     }

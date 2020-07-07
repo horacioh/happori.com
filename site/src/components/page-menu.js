@@ -1,16 +1,17 @@
-import React from "react";
-import Logo from "./logo";
-import { Link } from "gatsby";
+import React from "react"
+import Logo from "./logo"
+import { CheckoutButton } from "./checkout"
+import { Link } from "gatsby"
 
 export function MainMenu({ dark = false, ...props }) {
   return (
-    <div className="flex flex-col md:flex-row items-center md:justify-between">
+    <div className="flex flex-col md:flex-row items-center md:justify-between relative">
       <Link to="/">
         <Logo width="200" />
       </Link>
       <MainNav dark={dark} />
     </div>
-  );
+  )
 }
 
 export function MainNav({ dark = false, ...props }) {
@@ -20,7 +21,7 @@ export function MainNav({ dark = false, ...props }) {
         dark ? "bg-secondary" : "bg-transparent"
       }`}
     >
-      <ul className="flex items-baseline p-0 md:p-4">
+      <ul className="flex items-center p-0 md:p-4">
         {/* <li className="mx-2">
             <Link className="text-xs uppercase font-light px-2 py-1 rounded hover:bg-primary-hover hover:text-white transform transition duration-100 md:px-4 md:py-2">
               productos
@@ -48,16 +49,12 @@ export function MainNav({ dark = false, ...props }) {
             contacto
           </Link>
         </li>
-        <li className="mx-2">
-          <Link
-            to="/calcetines-solidarios/"
-            activeClassName="bg-red-500 text-white"
-            className="text-xs uppercase font-normal px-2 py-1 rounded bg-secondary text-white hover:bg-primary-hover transform transition duration-100 md:px-4 md:py-2"
-          >
-            calcetin solidario
+        <li>
+          <Link to="/checkout/" className={dark ? "text-white" : ""}>
+            <CheckoutButton className={dark ? "text-white" : ""} />
           </Link>
         </li>
       </ul>
     </nav>
-  );
+  )
 }

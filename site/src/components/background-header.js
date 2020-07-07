@@ -7,14 +7,14 @@ export function SectionBackground({ className, children, ...props }) {
   const { mobileImage, desktopImage } = useStaticQuery(
     graphql`
       query {
-        mobileImage: file(relativePath: { eq: "bg_solidario.jpg" }) {
+        mobileImage: file(relativePath: { eq: "" }) {
           childImageSharp {
             fluid(maxWidth: 1024, quality: 100) {
               ...GatsbyImageSharpFluid_withWebp
             }
           }
         }
-        desktopImage: file(relativePath: { eq: "bg_solidario.jpg" }) {
+        desktopImage: file(relativePath: { eq: "" }) {
           childImageSharp {
             fluid(maxWidth: 4160, quality: 100) {
               ...GatsbyImageSharpFluid_withWebp

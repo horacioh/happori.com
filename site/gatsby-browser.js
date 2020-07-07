@@ -1,8 +1,8 @@
-import React from "react";
-import "./src/styles/main.css";
-import { AppProviders } from "./src/components/app-providers";
-import Amplify from 'aws-amplify'
-import config from './src/aws-exports'
+import React from "react"
+import "./src/styles/main.css"
+import { AppProviders } from "./src/components/app-providers"
+import Amplify from "aws-amplify"
+import config from "./src/aws-exports"
 
 Amplify.configure(config)
 
@@ -15,5 +15,5 @@ Amplify.configure(config)
 // }
 
 export function wrapRootElement({ element }) {
-  return <AppProviders>{element}</AppProviders>;
+  return <AppProviders>{element}</AppProviders>
 }

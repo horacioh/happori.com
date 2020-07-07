@@ -1,4 +1,4 @@
-const path = require("path");
+const path = require("path")
 
 module.exports = {
   siteMetadata: {
@@ -16,6 +16,18 @@ module.exports = {
     `gatsby-plugin-sharp`,
     `gatsby-plugin-catch-links`,
     `gatsby-plugin-sitemap`,
+    {
+      resolve: `gatsby-source-graphql`,
+      options: {
+        typeName: "Product",
+        fieldName: "products",
+        url:
+          "https://uww2hekrerfr7kr5wqbo7n7ysu.appsync-api.eu-west-1.amazonaws.com/graphql",
+        headers: {
+          "x-api-key": "da2-iagqsvgxu5gb7ifpahz2ggmamm",
+        },
+      },
+    },
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
@@ -67,4 +79,4 @@ module.exports = {
     `gatsby-plugin-netlify`,
     `gatsby-plugin-netlify-cache`,
   ],
-};
+}

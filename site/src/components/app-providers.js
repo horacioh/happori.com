@@ -1,9 +1,9 @@
-import React from "react";
-import { loadStripe } from "@stripe/stripe-js";
-import { CartProvider } from "use-shopping-cart";
+import React from "react"
+import { loadStripe } from "@stripe/stripe-js"
+import { CartProvider } from "use-shopping-cart"
 
 // const stripePromise = loadStripe(process.env.REACT_APP_STRIPE_API_PUBLIC);
-const stripePromise = loadStripe(process.env.GATSBY_STRIPE_PUBLISHABLE_KEY);
+const stripePromise = loadStripe(process.env.GATSBY_STRIPE_PUBLISHABLE_KEY)
 
 export function AppProviders(props) {
   return (
@@ -17,5 +17,5 @@ export function AppProviders(props) {
     >
       {props.children}
     </CartProvider>
-  );
+  )
 }

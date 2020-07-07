@@ -33,12 +33,12 @@
 				"FunctionName": {
 					"Fn::If": [
 						"ShouldNotCreateEnvResources",
-						"contactform",
+						"products",
 						{
 							"Fn::Join": [
 								"",
 								[
-									"contactform",
+									"products",
 									"-",
 									{
 										"Ref": "env"
@@ -68,7 +68,7 @@
 				"Timeout": "25",
 				"Code": {
 					"S3Bucket": "amplify-happoricom-dev-224404-deployment",
-					"S3Key": "amplify-builds/contactform-573235424e52662b7372-build.zip"
+					"S3Key": "amplify-builds/products-3149634f6965514c6e43-build.zip"
 				}
 			}
 		},
@@ -78,12 +78,12 @@
 				"RoleName": {
 					"Fn::If": [
 						"ShouldNotCreateEnvResources",
-						"happoricomLambdaRolef1c9857a",
+						"happoricomLambdaRolef90911cc",
 						{
 							"Fn::Join": [
 								"",
 								[
-									"happoricomLambdaRolef1c9857a",
+									"happoricomLambdaRolef90911cc",
 									"-",
 									{
 										"Ref": "env"
