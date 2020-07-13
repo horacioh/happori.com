@@ -3,11 +3,13 @@ import { MainLayout, Section } from "../components/page-layout"
 import { MainMenu } from "../components/page-menu"
 import { Heading1, Heading2 } from "../components/headings"
 import { useShoppingCart, formatCurrencyString } from "use-shopping-cart"
+import { useToasts } from 'react-toast-notifications'
 
 export default function SingleProduct({ pageContext }) {
   const [count, setCount] = React.useState(1)
   const { addItem, totalPrice, incrementItem, cartDetails } = useShoppingCart()
   const { ...product } = pageContext
+  const { addToast } = useToasts()
 
   return (
     <MainLayout>
@@ -57,6 +59,8 @@ export default function SingleProduct({ pageContext }) {
                   } else {
                     addItem(product, parseInt(count))
                   }
+
+                  addToast('Se ha agregado el producto a tu cesta!', { appearance: 'success' })
                 }}
               >
                 Añadir

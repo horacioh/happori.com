@@ -1,6 +1,7 @@
 import React from "react"
 import { loadStripe } from "@stripe/stripe-js"
 import { CartProvider } from "use-shopping-cart"
+import { ToastProvider } from "react-toast-notifications"
 
 // const stripePromise = loadStripe(process.env.REACT_APP_STRIPE_API_PUBLIC);
 const stripePromise = loadStripe(process.env.GATSBY_STRIPE_PUBLISHABLE_KEY)
@@ -15,7 +16,7 @@ export function AppProviders(props) {
       billingAddressCollection={true}
       {...props}
     >
-      {props.children}
+      <ToastProvider autoDismiss={true}>{props.children}</ToastProvider>
     </CartProvider>
   )
 }

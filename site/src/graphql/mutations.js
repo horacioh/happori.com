@@ -6,6 +6,11 @@ export const submitContact = /* GraphQL */ `
     submitContact(input: $input)
   }
 `;
+export const checkout = /* GraphQL */ `
+  mutation Checkout($input: [CartItem]) {
+    checkout(input: $input)
+  }
+`;
 export const createProduct = /* GraphQL */ `
   mutation CreateProduct(
     $input: CreateProductInput!

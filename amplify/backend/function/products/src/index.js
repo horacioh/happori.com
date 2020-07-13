@@ -7,7 +7,7 @@ exports.handler = function(event, _, callback) {
         statusCode: 400,
         body: JSON.stringify(err),
       })
-    }
+    } 
 
     // asynchronously called
     callback(null, {

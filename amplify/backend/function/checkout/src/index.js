@@ -13,9 +13,13 @@ const validateCartItems = require("use-shopping-cart/src/serverUtil")
 
 const inventory = require("./data/products.json")
 
-exports.handler = async ({ body }) => {
+exports.handler = async function(event, _, callback) {
   try {
-    const productJSON = JSON.parse(body)
+    const productJSON = event.arguments.input.reduce((acc, curr) => {
+      acc[curr.sku] = curr
+
+      return acc
+    }, {})
 
     const line_items = validateCartItems(inventory, productJSON)
     const session = await stripe.checkout.sessions.create({
@@ -36,11 +40,10 @@ exports.handler = async ({ body }) => {
       // cancel_url: `https://happori.com/calcetines-solidarios/`,
       line_items,
     })
-    return {
-      statusCode: 200,
-      body: JSON.stringify({ sessionId: session.id }),
-    }
+
+    callback(null, { sessionId: session.id })
   } catch (error) {
+    callback(error)
     console.log("entro en el catch de la funcion!!", error)
     console.error(error)
   }

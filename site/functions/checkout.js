@@ -24,16 +24,9 @@ exports.handler = async ({ body }) => {
       shipping_address_collection: {
         allowed_countries: ["ES"],
       },
-      /*
-       * This env var is set by Netlify and inserts the live site URL. If you want
-       * to use a different URL, you can hard-code it here or check out the
-       * other environment variables Netlify exposes:
-       * https://docs.netlify.com/configure-builds/environment-variables/
-       */
       success_url: `${process.env.URL}/success/`,
       // success_url: `https://happori.com/success/`,
       cancel_url: process.env.URL,
-      // cancel_url: `https://happori.com/calcetines-solidarios/`,
       line_items,
     })
     return {

@@ -4,6 +4,19 @@ input SubmitContactInput {
   comment: String
 }
 
+input CartItem {
+  currency: Currency
+  description: String
+  formattedValue: String
+  id: String!
+  name: String
+  price: Float!
+  quantity: Int
+  sku: String!
+  slug: String
+  value: Float
+}
+
 enum Currency {
   EUR
 }
@@ -61,4 +74,6 @@ type Query {
 type Mutation {
   submitContact(input: SubmitContactInput): AWSJSON
     @function(name: "contactform-${env}")
+
+  checkout(input: [CartItem]): AWSJSON @function(name: "checkout-${env}")
 }
