@@ -38,7 +38,20 @@ exports.handler = async function(event, _, callback) {
       // success_url: `https://happori.com/success/`,
       cancel_url: process.env.URL,
       // cancel_url: `https://happori.com/calcetines-solidarios/`,
-      line_items,
+      line_items: [
+        ...line_items,
+        {
+          price_data: {
+            currency: "EUR",
+            product_data: {
+              name: "Costes de Envío",
+              description: "Precio por envio a cualquier sitio de España",
+            },
+            unit_amount: 500,
+          },
+          quantity: 1,
+        },
+      ],
     })
 
     callback(null, { sessionId: session.id })
