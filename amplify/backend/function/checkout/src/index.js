@@ -1,7 +1,4 @@
-const stripe = require("stripe")(
-  process.env.STRIPE_SECRET_KEY ||
-    "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"
-)
+const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY)
 
 const URL = process.env.URL || "http://localhost:8000"
 /*
@@ -53,7 +50,7 @@ exports.handler = async function(event) {
               name: "Costes de Envío",
               description: "Precio por envio a cualquier sitio de España",
             },
-            unit_amount: 500,
+            unit_amount: 590,
           },
           quantity: 1,
         },
