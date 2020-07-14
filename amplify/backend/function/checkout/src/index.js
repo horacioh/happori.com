@@ -1,4 +1,6 @@
-const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY)
+const stripe = require("stripe")(
+  "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"
+)
 /*
  * Product data can be loaded from anywhere. In this case, we’re loading it from
  * a local JSON file, but this could also come from an async call to your

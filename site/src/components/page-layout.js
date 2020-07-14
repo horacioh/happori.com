@@ -97,7 +97,6 @@ export function PageLayout({ children, pageContext: { frontmatter } }) {
 }
 
 export function ContactLayout({ children, ...props }) {
-  console.log("ContactLayout -> props", props)
   return (
     <MDXProvider components={components}>
       <CovidCallout />

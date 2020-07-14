@@ -6,7 +6,7 @@ import { MainMenu } from "../components/page-menu"
 import { Trash } from "react-feather"
 import { useShoppingCart, formatCurrencyString } from "use-shopping-cart"
 import { Link } from "../components/link"
-import { checkout } from "../graphql/mutations"
+import { checkout as checkoutOperation } from "../graphql/mutations"
 import { API, graphqlOperation } from "aws-amplify"
 
 export default function Checkout() {
@@ -32,9 +32,14 @@ export default function Checkout() {
     const input = Object.keys(cartDetails).map((o) => ({
       ...cartDetails[o],
     }))
-    const { data } = await API.graphql(graphqlOperation(checkout, { input }))
-    const checkout = JSON.parse(data.checkout)
-    redirectToCheckout({ sessionId: checkout.sessionId })
+    const result = await API.graphql(
+      graphqlOperation(checkoutOperation, { input })
+    )
+    console.log(
+      "handleCheckout -> result.data.checkout.sessionId",
+      result.data.checkout.sessionId
+    )
+    redirectToCheckout({ sessionId: result.data.checkout.sessionId })
   }
 
   return (
