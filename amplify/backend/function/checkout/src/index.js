@@ -1,4 +1,9 @@
-const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY)
+const stripe = require("stripe")(
+  process.env.STRIPE_SECRET_KEY ||
+    "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"
+)
+
+const URL = process.env.URL || "http://localhost:8000"
 /*
  * Product data can be loaded from anywhere. In this case, we’re loading it from
  * a local JSON file, but this could also come from an async call to your
@@ -10,7 +15,7 @@ const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY)
 
 const inventory = require("./data/products.json")
 
-exports.handler = async function(event, _, callback) {
+exports.handler = async function(event) {
   try {
     const productJSON = event.arguments.input.reduce((acc, curr) => {
       acc[curr.sku] = {
@@ -35,9 +40,9 @@ exports.handler = async function(event, _, callback) {
        * other environment variables Netlify exposes:
        * https://docs.netlify.com/configure-builds/environment-variables/
        */
-      success_url: `http://localhost:8000/gracias/`,
+      success_url: `${URL}/gracias/`,
       // success_url: `https://happori.com/success/`,
-      cancel_url: `http://localhost:8000`,
+      cancel_url: `${URL}`,
       // cancel_url: `https://happori.com/calcetines-solidarios/`,
       line_items: [
         ...line_items,
@@ -55,11 +60,16 @@ exports.handler = async function(event, _, callback) {
       ],
     })
 
-    callback(null, { sessionId: session.id })
+    return {
+      statusCode: 200,
+      body: { sessionId: session.id },
+    }
   } catch (error) {
-    callback(error)
     console.log("entro en el catch de la funcion!!", error)
-    console.error(error)
+    return {
+      statusCode: 400,
+      body: `[Error]: ${error.message}`,
+    }
   }
 }
 
