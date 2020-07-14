@@ -1,6 +1,6 @@
 projects:
   happoriapi:
-    schemaPath: site/src/graphql/schema.json
+    schemaPath: amplify/backend/api/happoriapi/build/schema.graphql
     includes:
       - site/src/graphql/**/*.js
     excludes:

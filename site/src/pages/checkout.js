@@ -33,6 +33,7 @@ export default function Checkout() {
       ...cartDetails[o],
     }))
     const { data } = await API.graphql(graphqlOperation(checkout, { input }))
+    console.log("handleCheckout -> data", data)
     redirectToCheckout({ sessionId: data.checkout.sessionId })
   }
 
