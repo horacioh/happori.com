@@ -32,8 +32,8 @@ export default function Checkout() {
     const input = Object.keys(cartDetails).map((o) => ({
       ...cartDetails[o],
     }))
-    const result = await API.graphql(graphqlOperation(checkout, { input }))
-    console.log("handleCheckout -> result", result)
+    const { data } = await API.graphql(graphqlOperation(checkout, { input }))
+    redirectToCheckout({ sessionId: data.checkout.sessionId })
   }
 
   return (

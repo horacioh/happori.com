@@ -1,7 +1,4 @@
-const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY)
-
-const validateCartItems = require("use-shopping-cart/src/serverUtil")
-  .validateCartItems
+const stripe = require("stripe")("sk_live_3Pua66abjRZap2dvv8K2us9100WT9Y77G7")
 /*
  * Product data can be loaded from anywhere. In this case, we’re loading it from
  * a local JSON file, but this could also come from an async call to your
@@ -16,13 +13,17 @@ const inventory = require("./data/products.json")
 exports.handler = async function(event, _, callback) {
   try {
     const productJSON = event.arguments.input.reduce((acc, curr) => {
-      acc[curr.sku] = curr
+      acc[curr.sku] = {
+        ...curr,
+        price: curr.sku,
+      }
 
       return acc
     }, {})
 
-    const line_items = validateCartItems(inventory, productJSON)
+    const line_items = buildCheckoutLineItems(inventory, productJSON)
     const session = await stripe.checkout.sessions.create({
+      mode: "payment",
       payment_method_types: ["card"],
       billing_address_collection: "auto",
       shipping_address_collection: {
@@ -34,9 +35,9 @@ exports.handler = async function(event, _, callback) {
        * other environment variables Netlify exposes:
        * https://docs.netlify.com/configure-builds/environment-variables/
        */
-      success_url: `${process.env.URL}/gracias/`,
+      success_url: `http://localhost:8000/gracias/`,
       // success_url: `https://happori.com/success/`,
-      cancel_url: process.env.URL,
+      cancel_url: `http://localhost:8000`,
       // cancel_url: `https://happori.com/calcetines-solidarios/`,
       line_items: [
         ...line_items,
@@ -60,4 +61,33 @@ exports.handler = async function(event, _, callback) {
     console.log("entro en el catch de la funcion!!", error)
     console.error(error)
   }
+}
+
+function buildCheckoutLineItems(inventorySrc, cartItems) {
+  const lineItems = []
+
+  for (const sku in cartItems) {
+    const cartItem = cartItems[sku]
+    const inventoryItem = inventorySrc.find(
+      (currentProduct) => currentProduct.sku === sku
+    )
+    if (!inventoryItem) throw new Error("Product not found!")
+    const product_data = {
+      name: inventoryItem.name,
+    }
+    if (inventoryItem.description)
+      product_data.description = inventoryItem.description
+    if (inventoryItem.image) product_data.images = [inventoryItem.image]
+    const item = {
+      price_data: {
+        currency: inventoryItem.currency,
+        unit_amount: inventoryItem.price,
+        product_data,
+      },
+      quantity: cartItem.quantity,
+    }
+    lineItems.push(item)
+  }
+
+  return lineItems
 }
