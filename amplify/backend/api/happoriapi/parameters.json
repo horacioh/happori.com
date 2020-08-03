@@ -2,5 +2,11 @@
     "AppSyncApiName": "happoriapi",
     "DynamoDBBillingMode": "PAY_PER_REQUEST",
     "DynamoDBEnableServerSideEncryption": "false",
-    "CreateAPIKey": 1
+    "CreateAPIKey": 1,
+    "AuthCognitoUserPoolId": {
+        "Fn::GetAtt": [
+            "authhapporicomf2b7e937",
+            "Outputs.UserPoolId"
+        ]
+    }
 }

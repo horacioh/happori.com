@@ -35,10 +35,7 @@ export default function Checkout() {
     const { data } = await API.graphql(
       graphqlOperation(checkoutOperation, { input })
     )
-    console.log(
-      "handleCheckout -> result.data.checkout.sessionId",
-      JSON.stringify(data)
-    )
+    console.log("handleCheckout -> result.data.checkout.sessionId", data)
 
     redirectToCheckout({ sessionId: data.checkout.body.sessionId })
   }
@@ -145,7 +142,12 @@ export default function Checkout() {
           >
             Vacía la cesta
           </button>
-          <button onClick={handleCheckout}>pagar</button>
+          <button
+            className="py-2 px-4 my-2 rounded border ml-4"
+            onClick={handleCheckout}
+          >
+            pagar
+          </button>
         </Section>
       ) : (
         <EmptyCart />

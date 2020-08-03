@@ -38,24 +38,20 @@ exports.handler = async function(event) {
        * https://docs.netlify.com/configure-builds/environment-variables/
        */
       success_url: `${URL}/gracias/`,
-      // success_url: `https://happori.com/success/`,
       cancel_url: `${URL}`,
-      // cancel_url: `https://happori.com/calcetines-solidarios/`,
       line_items: [
         ...line_items,
-        {
-          price_data: {
-            currency: "EUR",
-            product_data: {
-              name: "Costes de Envío",
-              description: "Precio por envio a cualquier sitio de España",
-            },
-            unit_amount: 590,
-          },
-          quantity: 1,
-        },
+        // {
+        //   name: "Costes de Envío",
+        //   description: "Precio por envio a cualquier sitio de España",
+        //   currency: "EUR",
+        //   amount: 590,
+        //   quantity: 1,
+        // },
       ],
     })
+
+    console.log("session complete ==> \n", session)
 
     return {
       statusCode: 200,
@@ -79,20 +75,17 @@ function buildCheckoutLineItems(inventorySrc, cartItems) {
       (currentProduct) => currentProduct.sku === sku
     )
     if (!inventoryItem) throw new Error("Product not found!")
-    const product_data = {
-      name: inventoryItem.name,
-    }
-    if (inventoryItem.description)
-      product_data.description = inventoryItem.description
-    if (inventoryItem.image) product_data.images = [inventoryItem.image]
+
     const item = {
-      price_data: {
-        currency: inventoryItem.currency,
-        unit_amount: inventoryItem.price,
-        product_data,
-      },
+      // name: inventoryItem.name,
+      // currency: inventoryItem.currency,
+      // amount: inventoryItem.price,
       quantity: cartItem.quantity,
+      price: inventoryItem.sku,
     }
+
+    // if (inventoryItem.description) item.description = inventoryItem.description
+    // if (inventoryItem.image) item.images = [inventoryItem.image]
     lineItems.push(item)
   }
 

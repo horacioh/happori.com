@@ -8,14 +8,11 @@ export function ProductsSection(props) {
   const { products } = useStaticQuery(graphql`
     query {
       products {
-        getCollection(id: "1342fdea-eb9d-42b7-a3fd-d72a27d42499") {
-          products {
-            items {
-              product {
-                name
-              }
-            }
-          }
+        prod1: getProduct(id: "19a305f5-2645-4c4d-a058-1875604a8a1a") {
+          name
+        }
+        prod2: getProduct(id: "6344964c-bae1-4bc6-b56e-ed9cb248abaf") {
+          name
         }
       }
     }
@@ -23,18 +20,13 @@ export function ProductsSection(props) {
 
   console.log({ products })
 
-  if (
-    products &&
-    products.getCollection &&
-    products.getCollection.products &&
-    products.getCollection.products.items
-  ) {
+  if (products) {
     return (
       <Section className="border-b-2">
         <Heading2 className="text-primary">Nuestros Productos</Heading2>
         <div className="py-12 bg-red-100">
           <ul className="flex flex-col md:flex-row -mx-4">
-            {products.getCollection.products.items.map(({ product }) => {
+            {Object.values(products).map((product) => {
               const url = `/productos/${slugify(product.name, {
                 lower: true,
               })}`

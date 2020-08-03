@@ -10,6 +10,11 @@
             "StackName": "amplify-happoricom-dev-224404",
             "StackId": "arn:aws:cloudformation:eu-west-1:115238827609:stack/amplify-happoricom-dev-224404/1f6a7c80-b4c9-11ea-a204-02078729aa3e",
             "AmplifyAppId": "d14m0bimknmist"
+        },
+        "categories": {
+            "auth": {
+                "happoricomf2b7e937": {}
+            }
         }
     }
 }

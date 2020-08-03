@@ -68,7 +68,7 @@
 				"Timeout": "25",
 				"Code": {
 					"S3Bucket": "amplify-happoricom-dev-224404-deployment",
-					"S3Key": "amplify-builds/checkout-716b42495a706b383559-build.zip"
+					"S3Key": "amplify-builds/checkout-477233716558354c7850-build.zip"
 				}
 			}
 		},

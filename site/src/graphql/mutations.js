@@ -22,12 +22,10 @@ export const createProduct = /* GraphQL */ `
       description
       sku
       price
-      image {
-        bucket
-        region
-        key
-      }
+      image
       currency
+      createdAt
+      updatedAt
       collections {
         items {
           id
@@ -38,8 +36,6 @@ export const createProduct = /* GraphQL */ `
         }
         nextToken
       }
-      createdAt
-      updatedAt
     }
   }
 `;
@@ -54,12 +50,10 @@ export const updateProduct = /* GraphQL */ `
       description
       sku
       price
-      image {
-        bucket
-        region
-        key
-      }
+      image
       currency
+      createdAt
+      updatedAt
       collections {
         items {
           id
@@ -70,8 +64,6 @@ export const updateProduct = /* GraphQL */ `
         }
         nextToken
       }
-      createdAt
-      updatedAt
     }
   }
 `;
@@ -86,12 +78,10 @@ export const deleteProduct = /* GraphQL */ `
       description
       sku
       price
-      image {
-        bucket
-        region
-        key
-      }
+      image
       currency
+      createdAt
+      updatedAt
       collections {
         items {
           id
@@ -102,8 +92,6 @@ export const deleteProduct = /* GraphQL */ `
         }
         nextToken
       }
-      createdAt
-      updatedAt
     }
   }
 `;
@@ -116,36 +104,32 @@ export const createProductCollection = /* GraphQL */ `
       id
       productID
       collectionID
+      createdAt
+      updatedAt
       product {
         id
         name
         description
         sku
         price
-        image {
-          bucket
-          region
-          key
-        }
+        image
         currency
+        createdAt
+        updatedAt
         collections {
           nextToken
         }
-        createdAt
-        updatedAt
       }
       collection {
         id
         name
         description
+        createdAt
+        updatedAt
         products {
           nextToken
         }
-        createdAt
-        updatedAt
       }
-      createdAt
-      updatedAt
     }
   }
 `;
@@ -158,36 +142,32 @@ export const updateProductCollection = /* GraphQL */ `
       id
       productID
       collectionID
+      createdAt
+      updatedAt
       product {
         id
         name
         description
         sku
         price
-        image {
-          bucket
-          region
-          key
-        }
+        image
         currency
+        createdAt
+        updatedAt
         collections {
           nextToken
         }
-        createdAt
-        updatedAt
       }
       collection {
         id
         name
         description
+        createdAt
+        updatedAt
         products {
           nextToken
         }
-        createdAt
-        updatedAt
       }
-      createdAt
-      updatedAt
     }
   }
 `;
@@ -200,36 +180,32 @@ export const deleteProductCollection = /* GraphQL */ `
       id
       productID
       collectionID
+      createdAt
+      updatedAt
       product {
         id
         name
         description
         sku
         price
-        image {
-          bucket
-          region
-          key
-        }
+        image
         currency
+        createdAt
+        updatedAt
         collections {
           nextToken
         }
-        createdAt
-        updatedAt
       }
       collection {
         id
         name
         description
+        createdAt
+        updatedAt
         products {
           nextToken
         }
-        createdAt
-        updatedAt
       }
-      createdAt
-      updatedAt
     }
   }
 `;
@@ -242,6 +218,8 @@ export const createCollection = /* GraphQL */ `
       id
       name
       description
+      createdAt
+      updatedAt
       products {
         items {
           id
@@ -252,8 +230,6 @@ export const createCollection = /* GraphQL */ `
         }
         nextToken
       }
-      createdAt
-      updatedAt
     }
   }
 `;
@@ -266,6 +242,8 @@ export const updateCollection = /* GraphQL */ `
       id
       name
       description
+      createdAt
+      updatedAt
       products {
         items {
           id
@@ -276,8 +254,6 @@ export const updateCollection = /* GraphQL */ `
         }
         nextToken
       }
-      createdAt
-      updatedAt
     }
   }
 `;
@@ -290,6 +266,8 @@ export const deleteCollection = /* GraphQL */ `
       id
       name
       description
+      createdAt
+      updatedAt
       products {
         items {
           id
@@ -300,8 +278,6 @@ export const deleteCollection = /* GraphQL */ `
         }
         nextToken
       }
-      createdAt
-      updatedAt
     }
   }
 `;

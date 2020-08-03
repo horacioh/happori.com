@@ -27,28 +27,36 @@ type Product
     name: "byText"
     fields: ["name", "description"]
     queryField: "productByText"
+  )
+  @auth(
+    rules: [
+      { allow: owner }
+      { allow: private, operations: [read] }
+      { allow: public, operations: [read] }
+    ]
   ) {
   id: ID!
   name: String!
   description: String
   sku: String
   price: Float!
-  image: S3Object
+  image: String
   currency: Currency
   collections: [ProductCollection]
     @connection(keyName: "byProduct", fields: ["id"])
 }
 
-type S3Object {
-  bucket: String!
-  region: String!
-  key: String!
-}
-
 type ProductCollection
   @model(queries: null)
   @key(name: "byCollection", fields: ["collectionID", "productID"])
-  @key(name: "byProduct", fields: ["productID", "collectionID"]) {
+  @key(name: "byProduct", fields: ["productID", "collectionID"])
+  @auth(
+    rules: [
+      { allow: owner }
+      { allow: private, operations: [read] }
+      { allow: public, operations: [read] }
+    ]
+  ) {
   id: ID!
   productID: ID!
   collectionID: ID!
@@ -58,17 +66,19 @@ type ProductCollection
 
 type Collection
   @model
-  @key(name: "byName", fields: ["name"], queryField: "collectionByName") {
+  @key(name: "byName", fields: ["name"], queryField: "collectionByName")
+  @auth(
+    rules: [
+      { allow: owner }
+      { allow: private, operations: [read] }
+      { allow: public, operations: [read] }
+    ]
+  ) {
   id: ID!
   name: String!
   description: String
   products: [ProductCollection]
     @connection(keyName: "byCollection", fields: ["id"])
-}
-
-type Query {
-  allProducts: [Product]
-  allCollections: [Collection]
 }
 
 type Mutation {

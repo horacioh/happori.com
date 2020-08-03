@@ -1,85 +1,6 @@
 /* eslint-disable */
 // this is an auto generated file. This will be overwritten
 
-export const allProducts = /* GraphQL */ `
-  query AllProducts {
-    allProducts {
-      id
-      name
-      description
-      sku
-      price
-      image {
-        bucket
-        region
-        key
-      }
-      currency
-      collections {
-        items {
-          id
-          productID
-          collectionID
-          createdAt
-          updatedAt
-        }
-        nextToken
-      }
-      createdAt
-      updatedAt
-    }
-  }
-`;
-export const allCollections = /* GraphQL */ `
-  query AllCollections {
-    allCollections {
-      id
-      name
-      description
-      products {
-        items {
-          id
-          productID
-          collectionID
-          createdAt
-          updatedAt
-        }
-        nextToken
-      }
-      createdAt
-      updatedAt
-    }
-  }
-`;
-export const getProduct = /* GraphQL */ `
-  query GetProduct($id: ID!) {
-    getProduct(id: $id) {
-      id
-      name
-      description
-      sku
-      price
-      image {
-        bucket
-        region
-        key
-      }
-      currency
-      collections {
-        items {
-          id
-          productID
-          collectionID
-          createdAt
-          updatedAt
-        }
-        nextToken
-      }
-      createdAt
-      updatedAt
-    }
-  }
-`;
 export const listProducts = /* GraphQL */ `
   query ListProducts(
     $filter: ModelProductFilterInput
@@ -93,29 +14,31 @@ export const listProducts = /* GraphQL */ `
         description
         sku
         price
-        image {
-          bucket
-          region
-          key
-        }
+        image
         currency
+        createdAt
+        updatedAt
         collections {
           nextToken
         }
-        createdAt
-        updatedAt
       }
       nextToken
     }
   }
 `;
-export const getCollection = /* GraphQL */ `
-  query GetCollection($id: ID!) {
-    getCollection(id: $id) {
+export const getProduct = /* GraphQL */ `
+  query GetProduct($id: ID!) {
+    getProduct(id: $id) {
       id
       name
       description
-      products {
+      sku
+      price
+      image
+      currency
+      createdAt
+      updatedAt
+      collections {
         items {
           id
           productID
@@ -125,29 +48,6 @@ export const getCollection = /* GraphQL */ `
         }
         nextToken
       }
-      createdAt
-      updatedAt
-    }
-  }
-`;
-export const listCollections = /* GraphQL */ `
-  query ListCollections(
-    $filter: ModelCollectionFilterInput
-    $limit: Int
-    $nextToken: String
-  ) {
-    listCollections(filter: $filter, limit: $limit, nextToken: $nextToken) {
-      items {
-        id
-        name
-        description
-        products {
-          nextToken
-        }
-        createdAt
-        updatedAt
-      }
-      nextToken
     }
   }
 `;
@@ -174,19 +74,57 @@ export const productByText = /* GraphQL */ `
         description
         sku
         price
-        image {
-          bucket
-          region
-          key
-        }
+        image
         currency
+        createdAt
+        updatedAt
         collections {
           nextToken
         }
-        createdAt
-        updatedAt
       }
       nextToken
+    }
+  }
+`;
+export const listCollections = /* GraphQL */ `
+  query ListCollections(
+    $filter: ModelCollectionFilterInput
+    $limit: Int
+    $nextToken: String
+  ) {
+    listCollections(filter: $filter, limit: $limit, nextToken: $nextToken) {
+      items {
+        id
+        name
+        description
+        createdAt
+        updatedAt
+        products {
+          nextToken
+        }
+      }
+      nextToken
+    }
+  }
+`;
+export const getCollection = /* GraphQL */ `
+  query GetCollection($id: ID!) {
+    getCollection(id: $id) {
+      id
+      name
+      description
+      createdAt
+      updatedAt
+      products {
+        items {
+          id
+          productID
+          collectionID
+          createdAt
+          updatedAt
+        }
+        nextToken
+      }
     }
   }
 `;
@@ -209,11 +147,11 @@ export const collectionByName = /* GraphQL */ `
         id
         name
         description
+        createdAt
+        updatedAt
         products {
           nextToken
         }
-        createdAt
-        updatedAt
       }
       nextToken
     }
