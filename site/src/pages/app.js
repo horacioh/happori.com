@@ -6,28 +6,41 @@ import {
   AmplifySignOut,
   AmplifySignIn,
 } from "@aws-amplify/ui-react"
-import { listProducts } from "../graphql/queries"
-import { API, graphqlOperation } from "aws-amplify"
-import { useQuery } from "react-query"
+// import { listProducts } from "../graphql/queries"
+// import { API, graphqlOperation } from "aws-amplify"
+// import { useQuery } from "react-query"
 import ListProducts from "../components/list-products"
+import CreateProduct from "../components/create-product"
 import EditProduct from "../components/edit-product"
+import { Auth } from "aws-amplify"
 
 export default function App() {
-  const { data } = useQuery("products", () =>
-    API.graphql({ query: listProducts })
-  )
-
   return (
     <AmplifyAuthenticator>
-      <nav>
-        <Link to="/app/">Home</Link>
+      <nav className="p-4 flex items-center justify-center">
+        <Link
+          className="px-4 py-2 bg-gray-200 hover:bg-gray-400 mx-2"
+          to="/app"
+        >
+          Home
+        </Link>
+        <Link
+          className="px-4 py-2 bg-gray-200 hover:bg-gray-400 mx-2"
+          to="/app/product/new"
+        >
+          Crear nuevo producto
+        </Link>
+        <Link to="/" className="px-4 py-2 bg-gray-200 hover:bg-gray-400 mx-2">
+          Go to website
+        </Link>
+        <button onClick={() => Auth.signOut()}>logout</button>
       </nav>
-      <AmplifySignIn hideSignUp slot="sign-in" />
+      <AmplifySignIn slot="sign-in" />
       <Router>
-        <ListProducts path="/app/" />
-        <EditProduct path="/app/edit/:id" />
+        <ListProducts path="/app" />
+        <CreateProduct path="/app/product/new" />
+        <EditProduct path="/app/product/:id" />
       </Router>
-      <AmplifySignOut />
     </AmplifyAuthenticator>
   )
 }

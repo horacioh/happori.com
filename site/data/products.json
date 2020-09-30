@@ -4,6 +4,7 @@
     "slug": "happori",
     "description": "Calcetin con el logo de Happori",
     "sku": "price_1GzTtcLx7jivaev6qDKuu98f",
+    "priceId": "price_1GzTtcLx7jivaev6qDKuu98f",
     "price": 1450,
     "currency": "EUR"
   },
@@ -20,6 +21,7 @@
     "slug": "tierra",
     "description": "La tierra visible ocupa solamente el 29% de nuestro planeta y, sin embargo, ha sido en este pequeño territorio donde la humanidad ha prosperado. Le debemos mucho a este elemento pero, aún así, lejos de cuidar y agradecer, la explotamos y la maltratamos. Es hora de cambiar nuestros hábitos y respetarla como se merece. Este par de calcetines no solamente son un homenaje a la tierra sino también un alegato al respeto por ella al estar fabricados en un 90% de algodón orgánico no contaminante.",
     "sku": "price_1GzTnpLx7jivaev6PIyLOFra",
+    "priceId": "price_1GzTnpLx7jivaev6PIyLOFra",
     "price": 1450,
     "currency": "EUR"
   }

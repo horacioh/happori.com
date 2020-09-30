@@ -11,7 +11,7 @@ const validateCartItems = require("use-shopping-cart/src/serverUtil")
  * so you know the pricing information is accurate.
  */
 
-const inventory = require("./data/products.json")
+const inventory = require("../data/products.json")
 
 exports.handler = async ({ body }) => {
   try {

@@ -1,50 +1,22 @@
 import React from "react"
-import { useQuery } from "react-query"
-import { getProduct as getProductQuery } from "../../site/src/graphql/queries"
 import { API, graphqlOperation, Storage } from "aws-amplify"
 import { useProduct } from "../api/product"
 import { useForm } from "react-hook-form"
 
 export default function CreateProduct(props) {
-  console.log("CreateProduct -> props", props)
-
-  const { register, handleSubmit, errors, formState, setValue } = useForm({
+  const { register, handleSubmit, errors, formState } = useForm({
     mode: "onChange",
   })
 
-  const { updateProduct } = useProduct()
-  const { data, isSuccess, isLoading } = useQuery(
-    ["product", props?.id],
-    async () => {
-      const { data } = await API.graphql({
-        query: getProductQuery,
-        variables: { id: props.id },
-      })
-      return data.getProduct
-    }
-  )
-
-  React.useEffect(() => {
-    if (isSuccess) {
-      console.log(data)
-      setValue("name", data.name)
-      setValue("description", data.description)
-      setValue("price", data.price)
-      setValue("priceId", data.priceId)
-      setValue("currentInventory", data.currentInventory)
-    }
-  }, [data, isSuccess])
+  const { createProduct } = useProduct()
   const [file, setFile] = React.useState()
 
   async function onSubmit(input) {
-    await updateProduct({ input: { ...input, id: props.id }, file })
+    await createProduct({ input, file })
   }
 
   function handleImageChange(e) {
     const [file] = e.target.files
-    // console.log("handleImageChange -> file", file)
-    // const url = URL.createObjectURL(file)
-    // console.log("handleOnChange -> url", url)
     setFile(file)
   }
 
@@ -126,8 +98,11 @@ export default function CreateProduct(props) {
         </div>
         <div className="pt-4">
           <button
-            className={`px-4 py-2 bg-green-500 hover:bg-green-800 text-white rounded`}
+            className={`px-4 py-2 bg-green-500 hover:bg-green-800 text-white rounded ${
+              !formState.isValid ? "opacity-50 cursor-not-allowed" : ""
+            }`}
             type="submit"
+            disabled={!formState.isValid || formState.isSubmitting}
           >
             Crear
           </button>

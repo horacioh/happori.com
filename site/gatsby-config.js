@@ -22,9 +22,9 @@ module.exports = {
         typeName: "Product",
         fieldName: "products",
         url:
-          "https://uww2hekrerfr7kr5wqbo7n7ysu.appsync-api.eu-west-1.amazonaws.com/graphql",
+          "https://mwyybrdbhfbzblcl5ixogc7nuy.appsync-api.eu-west-1.amazonaws.com/graphql",
         headers: {
-          "x-api-key": "da2-iagqsvgxu5gb7ifpahz2ggmamm",
+          "x-api-key": "da2-zkq3pzyddvhtjl4jpaeobvzvuu",
         },
       },
     },

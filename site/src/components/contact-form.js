@@ -1,7 +1,7 @@
 import React from "react"
 import { useForm } from "react-hook-form"
-import { submitContact } from "../graphql/mutations"
-import { API, graphqlOperation } from "aws-amplify"
+// import { submitContact } from "../graphql/mutations"
+// import { API, graphqlOperation } from "aws-amplify"
 
 export function ContactForm() {
   const [success, setSuccess] = React.useState(false)
@@ -10,25 +10,25 @@ export function ContactForm() {
   })
 
   async function onSubmit(data) {
-    // await fetch("https://api.formik.com/submit/happoricom/contact-form", {
-    //   method: "POST",
-    //   headers: {
-    //     "Content-Type": "application/json",
-    //   },
-    //   body: JSON.stringify(data),
-    // })
+    await fetch("https://api.formik.com/submit/happoricom/contact-form", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+    })
 
-    // setSuccess(true)
-    try {
-      await API.graphql(
-        graphqlOperation(submitContact, {
-          input: data,
-        })
-      )
-      setSuccess(true)
-    } catch (err) {
-      throw new Error(err)
-    }
+    setSuccess(true)
+    // try {
+    //   await API.graphql(
+    //     graphqlOperation(submitContact, {
+    //       input: data,
+    //     })
+    //   )
+    //   setSuccess(true)
+    // } catch (err) {
+    //   throw new Error(err)
+    // }
   }
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="w-full mt-8 max-w-2xl">
@@ -70,7 +70,7 @@ export function ContactForm() {
       </div>
       <div className="mt-2 mb-8 relative">
         <label htmlFor="email" className="block text-sm ml-1">
-          Email:
+          Comentario:
         </label>
         <textarea
           rows={5}

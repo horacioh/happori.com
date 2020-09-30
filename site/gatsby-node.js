@@ -4,7 +4,7 @@ require("dotenv").config({
 })
 const slugify = require("slugify")
 
-const products = require("./data/products.json")
+// const products = require("./data/products.json")
 
 exports.createPages = async ({ actions, graphql }) => {
   const { createPage } = actions
@@ -15,18 +15,19 @@ exports.createPages = async ({ actions, graphql }) => {
         listProducts {
           items {
             id
+            image
             name
-            description
-            sku
-            currency
             price
+            priceId
+            description
           }
         }
       }
     }
   `)
+  console.log("exports.createPages -> result", result)
 
-  result.data.products.listProducts.items.forEach((product) => {
+  result.data.products.listProducts.items.forEach(async (product) => {
     const slug = slugify(product.name, { lower: true })
     createPage({
       path: `productos/${slug}`,
