@@ -1,6 +1,6 @@
 import React from "react"
 import { useQuery } from "react-query"
-import { getProduct as getProductQuery } from "../../site/src/graphql/queries"
+import { getProduct as getProductQuery } from "../graphql/queries"
 import { API, graphqlOperation, Storage } from "aws-amplify"
 import { useProduct } from "../api/product"
 import { useForm } from "react-hook-form"

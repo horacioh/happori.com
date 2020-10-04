@@ -44,6 +44,7 @@ function buildCheckoutLineItems(inventorySrc, cartItems) {
 
   for (const sku in cartItems) {
     const cartItem = cartItems[sku]
+    console.log({ sku })
     const inventoryItem = inventorySrc.find(
       (currentProduct) => currentProduct.sku === sku
     )

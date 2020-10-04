@@ -1,8 +1,8 @@
 import React from "react"
 import { queryCache, useMutation, useQuery } from "react-query"
 import { API, Storage } from "aws-amplify"
-import { listProducts } from "../../site/src/graphql/queries"
-import { deleteProduct as deleteMutation } from "../../site/src/graphql/mutations"
+import { listProducts } from "../graphql/queries"
+import { deleteProduct as deleteMutation } from "../graphql/mutations"
 import { Link } from "gatsby"
 import { useProduct } from "../api/product"
 

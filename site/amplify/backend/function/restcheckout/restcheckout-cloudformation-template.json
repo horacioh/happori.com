@@ -69,7 +69,7 @@
 				"Timeout": "25",
 				"Code": {
 					"S3Bucket": "amplify-happori-dev-223908-deployment",
-					"S3Key": "amplify-builds/restcheckout-306936572b6f6c5a3243-build.zip"
+					"S3Key": "amplify-builds/restcheckout-344f732b39396d747748-build.zip"
 				}
 			}
 		},

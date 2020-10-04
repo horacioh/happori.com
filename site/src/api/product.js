@@ -4,7 +4,7 @@ import {
   deleteProduct,
   createProduct as createProductMutation,
   updateProduct as updateProductMutation,
-} from "../../site/src/graphql/mutations"
+} from "../graphql/mutations"
 
 export function useProduct() {
   const mutationOptions = {

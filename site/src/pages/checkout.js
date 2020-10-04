@@ -6,8 +6,7 @@ import { MainMenu } from "../components/page-menu"
 import { Trash } from "react-feather"
 import { useShoppingCart, formatCurrencyString } from "use-shopping-cart"
 import { Link } from "../components/link"
-import { checkout as checkoutOperation } from "../../site/src/graphql/mutations"
-import { API, graphqlOperation } from "aws-amplify"
+import { API } from "aws-amplify"
 import { useMutation } from "react-query"
 
 export default function Checkout() {
@@ -20,14 +19,11 @@ export default function Checkout() {
     cartDetails,
   } = useShoppingCart()
 
-  const [mutate] = useMutation(async (input) => {
-    const data = await API.graphql({
-      query: checkoutOperation,
-      variables: { input },
+  const [mutate] = useMutation(async (body) =>
+    API.post("ecommerce", "/restcheckout", {
+      body,
     })
-
-    console.log({ data })
-  })
+  )
 
   function handleClearCart() {
     const result = window.confirm("Estas seguro que quieres vaciar tu cesta?")
@@ -39,21 +35,15 @@ export default function Checkout() {
 
   async function handleCheckout() {
     console.log("cartDetails", cartDetails)
-    // const input = Object.keys(cartDetails).map((o) => ({
-    //   ...cartDetails[o],
-    // }))
-    // mutate(cartDetails)
-    // const { data } = await API.graphql(
-    //   graphqlOperation(checkoutOperation, { input })
-    // )
-    // console.log("handleCheckout -> result.data.checkout.sessionId", data)
-    //
-    // redirectToCheckout({ sessionId: data.checkout.body.sessionId })
-    const { sessionId } = await API.post("ecommerce", "/checkout", {
-      body: cartDetails,
-    })
+    try {
+      const res = await mutate(cartDetails)
+      console.log("handleCheckout -> res", res)
+    } catch (err) {
+      console.log("ERROR")
+      console.log(err)
+    }
 
-    redirectToCheckout({ sessionId })
+    // redirectToCheckout({ sessionId })
   }
 
   return (
@@ -166,21 +156,15 @@ export default function Checkout() {
           </button>
         </Section>
       ) : (
-        <EmptyCart />
+        <Section>
+          <div className="border p-6 text-center">
+            <h3 className="font-bold text-2xl ">Tu cesta está vacia</h3>
+            <p>
+              empieza viendo nuestra <Link to="/">colección actual</Link>
+            </p>
+          </div>
+        </Section>
       )}
     </MainLayout>
-  )
-}
-
-function EmptyCart() {
-  return (
-    <Section>
-      <div className="border p-6 text-center">
-        <h3 className="font-bold text-2xl ">Tu cesta está vacia</h3>
-        <p>
-          empieza viendo nuestra <Link to="/">colección actual</Link>
-        </p>
-      </div>
-    </Section>
   )
 }
