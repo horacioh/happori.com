@@ -10,16 +10,6 @@
             "StackName": "amplify-happori-dev-223908",
             "StackId": "arn:aws:cloudformation:eu-west-1:115238827609:stack/amplify-happori-dev-223908/05de5740-ebca-11ea-b35a-02dbc193ed28",
             "AmplifyAppId": "dk9iea7qwd3jo"
-        },
-        "categories": {
-            "function": {
-                "happori76f9c2cfPostConfirmation": {
-                    "GROUP": "Admin"
-                }
-            },
-            "auth": {
-                "happori76f9c2cf": {}
-            }
         }
     }
 }
