@@ -11,6 +11,7 @@ export const onCreateProduct = /* GraphQL */ `
       price
       image
       currentInventory
+      foo
       createdAt
       updatedAt
     }
@@ -26,6 +27,7 @@ export const onUpdateProduct = /* GraphQL */ `
       price
       image
       currentInventory
+      foo
       createdAt
       updatedAt
     }
@@ -41,6 +43,7 @@ export const onDeleteProduct = /* GraphQL */ `
       price
       image
       currentInventory
+      foo
       createdAt
       updatedAt
     }

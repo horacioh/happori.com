@@ -11,6 +11,7 @@ export const getProduct = /* GraphQL */ `
       price
       image
       currentInventory
+      foo
       createdAt
       updatedAt
     }
@@ -31,6 +32,7 @@ export const listProducts = /* GraphQL */ `
         price
         image
         currentInventory
+        foo
         createdAt
         updatedAt
       }

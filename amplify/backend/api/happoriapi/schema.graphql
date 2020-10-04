@@ -13,4 +13,5 @@ type Product
   price: Float!
   image: String
   currentInventory: Int!
+  foo: String
 }
