@@ -9,9 +9,9 @@ import {
 // import { listProducts } from "../graphql/queries"
 // import { API, graphqlOperation } from "aws-amplify"
 // import { useQuery } from "react-query"
-import ListProducts from "../components/list-products"
-import CreateProduct from "../components/create-product"
-import EditProduct from "../components/edit-product"
+import ListProducts from "./src/components/list-products"
+import CreateProduct from "./src/components/create-product"
+import EditProduct from "./src/components/edit-product"
 import { Auth } from "aws-amplify"
 
 export default function App() {

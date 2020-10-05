@@ -1,6 +1,30 @@
 {
 	"auth": {},
-	"function": {},
+	"function": {
+		"handlePayments": {
+			"build": true,
+			"providerPlugin": "awscloudformation",
+			"service": "Lambda",
+			"dependsOn": []
+		}
+	},
 	"storage": {},
-	"api": {}
+	"api": {
+		"happori": {
+			"service": "AppSync",
+			"providerPlugin": "awscloudformation",
+			"output": {
+				"authConfig": {
+					"additionalAuthenticationProviders": [],
+					"defaultAuthentication": {
+						"authenticationType": "API_KEY",
+						"apiKeyConfig": {
+							"description": "public key",
+							"apiKeyExpirationDays": 100
+						}
+					}
+				}
+			}
+		}
+	}
 }

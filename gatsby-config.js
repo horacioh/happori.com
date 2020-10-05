@@ -12,22 +12,8 @@ module.exports = {
     `gatsby-plugin-emotion`,
     `gatsby-plugin-mdx`,
     `gatsby-plugin-postcss`,
-    `gatsby-transformer-sharp`,
-    `gatsby-plugin-sharp`,
     `gatsby-plugin-catch-links`,
     `gatsby-plugin-sitemap`,
-    {
-      resolve: `gatsby-source-graphql`,
-      options: {
-        typeName: "Product",
-        fieldName: "products",
-        url:
-          "https://mwyybrdbhfbzblcl5ixogc7nuy.appsync-api.eu-west-1.amazonaws.com/graphql",
-        headers: {
-          "x-api-key": "da2-zkq3pzyddvhtjl4jpaeobvzvuu",
-        },
-      },
-    },
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
@@ -74,6 +60,8 @@ module.exports = {
         // whitelistHostnames: ["horacioh.com"]
       },
     },
+    `gatsby-transformer-sharp`,
+    `gatsby-plugin-sharp`,
     // Must be placed at the end
     `gatsby-plugin-offline`,
     `gatsby-plugin-netlify`,

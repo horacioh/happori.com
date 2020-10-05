@@ -1,4 +1,5 @@
 import React from "react"
+import Img from "gatsby-image"
 import { useQuery } from "react-query"
 import { MainLayout, Section } from "../components/page-layout"
 import { Storage } from "aws-amplify"
@@ -7,24 +8,10 @@ import { Heading1, Heading2 } from "../components/headings"
 import { useShoppingCart, formatCurrencyString } from "use-shopping-cart"
 import { useToasts } from "react-toast-notifications"
 
-export default function SingleProduct({ pageContext }) {
+export default function SingleProduct({ pageContext: product }) {
   const [count, setCount] = React.useState(1)
   const { addItem, totalPrice, incrementItem, cartDetails } = useShoppingCart()
   const { addToast } = useToasts()
-
-  const { data: product, isSuccess } = useQuery("product", async () => {
-    let product = pageContext
-    const imageUrl = await Storage.get(product.image)
-
-    return {
-      ...product,
-      imageUrl,
-    }
-  })
-
-  if (!isSuccess) {
-    return <p>loading...</p>
-  }
 
   return (
     <MainLayout>
@@ -48,10 +35,7 @@ export default function SingleProduct({ pageContext }) {
             className="flex-1 relative overflow-hidden mr-8 rounded-lg shadow-lg"
             style={{ height: 400 }}
           >
-            <img
-              className="block w-full object-cover absolute top-0 left-0"
-              src={product.imageUrl}
-            />
+            <Img className="w-full" fluid={product.imageData} />
           </div>
           <div className="flex-1">
             <p className="w-full max-w-2xl mb-0 text-xl font-light text-primary-hover">
