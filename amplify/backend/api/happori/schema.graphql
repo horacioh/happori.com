@@ -1,9 +1,0 @@
-type Todo @model {
-  id: ID!
-  name: String!
-  description: String
-}
-
-type Mutation {
-  handlePayment(input: String!): String @function(name: "handlePayments-${env}")
-}

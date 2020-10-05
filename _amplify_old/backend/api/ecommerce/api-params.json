@@ -1,0 +1,34 @@
+{
+    "paths": [
+        {
+            "name": "/checkout",
+            "lambdaFunction": "restcheckout",
+            "privacy": {
+                "open": true
+            }
+        }
+    ],
+    "resourceName": "ecommerce",
+    "apiName": "ecommerce",
+    "functionArns": [
+        {
+            "lambdaFunction": "restcheckout"
+        }
+    ],
+    "privacy": {
+        "auth": 0,
+        "unauth": 0,
+        "authRoleName": "amplify-happori-dev-223908-authRole",
+        "unAuthRoleName": "amplify-happori-dev-223908-unauthRole"
+    },
+    "dependsOn": [
+        {
+            "category": "function",
+            "resourceName": "restcheckout",
+            "attributes": [
+                "Name",
+                "Arn"
+            ]
+        }
+    ]
+}

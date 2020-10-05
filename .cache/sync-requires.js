@@ -5,7 +5,7 @@ const preferDefault = m => (m && m.default) || m
 
 
 exports.components = {
-  "component---cache-dev-404-page-js": hot(preferDefault(require("/Users/horacio/workspace/happori/happori.com/.cache/dev-404-page.js"))),
+  "component---cache-caches-gatsby-plugin-offline-app-shell-js": hot(preferDefault(require("/Users/horacio/workspace/happori/happori.com/.cache/caches/gatsby-plugin-offline/app-shell.js"))),
   "component---src-pages-checkout-js": hot(preferDefault(require("/Users/horacio/workspace/happori/happori.com/src/pages/checkout.js"))),
   "component---src-pages-contacto-mdx": hot(preferDefault(require("/Users/horacio/workspace/happori/happori.com/src/pages/contacto.mdx"))),
   "component---src-pages-gracias-mdx": hot(preferDefault(require("/Users/horacio/workspace/happori/happori.com/src/pages/gracias.mdx"))),

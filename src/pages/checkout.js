@@ -6,7 +6,7 @@ import { MainMenu } from "../components/page-menu"
 import { Trash } from "react-feather"
 import { useShoppingCart, formatCurrencyString } from "use-shopping-cart"
 import { Link } from "../components/link"
-import { handlePayment } from "../graphql/mutations"
+import { processPayment } from "../graphql/mutations"
 import { API } from "aws-amplify"
 import { useMutation } from "react-query"
 
@@ -22,7 +22,7 @@ export default function Checkout() {
 
   const [mutate] = useMutation(async (input) =>
     API.graphql({
-      query: handlePayment,
+      query: processPayment,
       variables: { input: JSON.stringify(input) },
     })
   )
@@ -36,12 +36,12 @@ export default function Checkout() {
   }
 
   async function handleCheckout() {
-    console.log("cartDetails", cartDetails)
+    // console.log("cartDetails", cartDetails)
     try {
       const resp = await mutate(cartDetails)
-      console.log("handleCheckout -> result", resp.data.handlePayment)
-      const result = JSON.parse(resp.data.handlePayment)
-      console.log("handleCheckout -> result", result)
+      // console.log("handleCheckout -> result", resp.data.processPayment)
+      const result = JSON.parse(resp.data.processPayment)
+      // console.log("handleCheckout -> result", result)
       redirectToCheckout({ sessionId: result.body.sessionId })
     } catch (err) {
       console.log("ERROR")

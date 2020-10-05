@@ -1,0 +1,165 @@
+{
+	"providers": {
+		"awscloudformation": {
+			"AuthRoleName": "amplify-happori-dev-223908-authRole",
+			"UnauthRoleArn": "arn:aws:iam::115238827609:role/amplify-happori-dev-223908-unauthRole",
+			"AuthRoleArn": "arn:aws:iam::115238827609:role/amplify-happori-dev-223908-authRole",
+			"Region": "eu-west-1",
+			"DeploymentBucketName": "amplify-happori-dev-223908-deployment",
+			"UnauthRoleName": "amplify-happori-dev-223908-unauthRole",
+			"StackName": "amplify-happori-dev-223908",
+			"StackId": "arn:aws:cloudformation:eu-west-1:115238827609:stack/amplify-happori-dev-223908/05de5740-ebca-11ea-b35a-02dbc193ed28",
+			"AmplifyAppId": "dk9iea7qwd3jo"
+		}
+	},
+	"auth": {
+		"happori76f9c2cf": {
+			"service": "Cognito",
+			"providerPlugin": "awscloudformation",
+			"dependsOn": [
+				{
+					"category": "function",
+					"resourceName": "happori76f9c2cfPostConfirmation",
+					"triggerProvider": "Cognito",
+					"attributes": [
+						"Arn",
+						"Name"
+					]
+				}
+			],
+			"providerMetadata": {
+				"s3TemplateURL": "https://s3.amazonaws.com/amplify-happori-dev-223908-deployment/amplify-cfn-templates/auth/happori76f9c2cf-cloudformation-template.yml",
+				"logicalId": "authhappori76f9c2cf"
+			},
+			"lastPushTimeStamp": "2020-10-04T20:24:14.695Z",
+			"output": {
+				"AppClientSecret": "robk4n6gslp91k0m6l5o6dlskdef112dpg14hb9c5holum01qq4",
+				"UserPoolId": "eu-west-1_F3pkv8QyE",
+				"AppClientIDWeb": "2n4qoedjguvno6kf0i5ehh4dha",
+				"AppClientID": "2b0djt8jehgoou2peck9u51af2",
+				"IdentityPoolId": "eu-west-1:ed5b0593-ce44-4362-8f52-2ce4151b5a56",
+				"IdentityPoolName": "happori76f9c2cf_identitypool_76f9c2cf__dev",
+				"UserPoolName": "happori76f9c2cf_userpool_76f9c2cf"
+			},
+			"lastPushDirHash": "VOpqBgyvz/G+FIM34LTDAZxIt1Y="
+		}
+	},
+	"function": {
+		"happori76f9c2cfPostConfirmation": {
+			"build": true,
+			"providerPlugin": "awscloudformation",
+			"service": "Lambda",
+			"lastBuildTimeStamp": "2020-09-30T20:58:58.571Z",
+			"lastPackageTimeStamp": "2020-09-30T20:58:58.884Z",
+			"distZipFilename": "happori76f9c2cfPostConfirmation-3973366f71417a7a3179-build.zip",
+			"providerMetadata": {
+				"s3TemplateURL": "https://s3.amazonaws.com/amplify-happori-dev-223908-deployment/amplify-cfn-templates/function/happori76f9c2cfPostConfirmation-cloudformation-template.json",
+				"logicalId": "functionhappori76f9c2cfPostConfirmation"
+			},
+			"lastPushTimeStamp": "2020-10-04T20:24:14.696Z",
+			"output": {
+				"Region": "eu-west-1",
+				"Arn": "arn:aws:lambda:eu-west-1:115238827609:function:happori76f9c2cfPostConfirmation-dev",
+				"Name": "happori76f9c2cfPostConfirmation-dev",
+				"LambdaExecutionRole": "happori76f9c2cfPostConfirmation-dev"
+			},
+			"lastPushDirHash": "++QOyhsGeGAsyHV/wTv5BXlhKOg="
+		},
+		"restcheckout": {
+			"build": true,
+			"providerPlugin": "awscloudformation",
+			"service": "Lambda",
+			"dependsOn": [],
+			"lastBuildTimeStamp": "2020-10-04T16:06:07.330Z",
+			"lastPackageTimeStamp": "2020-10-04T16:06:07.883Z",
+			"distZipFilename": "restcheckout-344f732b39396d747748-build.zip",
+			"providerMetadata": {
+				"s3TemplateURL": "https://s3.amazonaws.com/amplify-happori-dev-223908-deployment/amplify-cfn-templates/function/restcheckout-cloudformation-template.json",
+				"logicalId": "functionrestcheckout"
+			},
+			"lastPushTimeStamp": "2020-10-04T20:24:14.697Z",
+			"output": {
+				"Region": "eu-west-1",
+				"Arn": "arn:aws:lambda:eu-west-1:115238827609:function:restcheckout-dev",
+				"Name": "restcheckout-dev",
+				"LambdaExecutionRole": "happoriLambdaRole8420fc3e-dev"
+			},
+			"lastPushDirHash": "pg5fdAqsfW6GRIUOU89cz+54blw="
+		}
+	},
+	"storage": {
+		"happoriproducts": {
+			"service": "S3",
+			"providerPlugin": "awscloudformation",
+			"providerMetadata": {
+				"s3TemplateURL": "https://s3.amazonaws.com/amplify-happori-dev-223908-deployment/amplify-cfn-templates/storage/s3-cloudformation-template.json",
+				"logicalId": "storagehapporiproducts"
+			},
+			"lastPushTimeStamp": "2020-10-04T20:24:14.699Z",
+			"output": {
+				"BucketName": "happoriproducts223908-dev",
+				"Region": "eu-west-1"
+			},
+			"lastPushDirHash": "Ke6/EwzH+mWDnCgYryUE2Vucp8Y="
+		}
+	},
+	"api": {
+		"happoriapi": {
+			"service": "AppSync",
+			"providerPlugin": "awscloudformation",
+			"output": {
+				"authConfig": {
+					"additionalAuthenticationProviders": [
+						{
+							"authenticationType": "API_KEY",
+							"apiKeyConfig": {
+								"description": "website",
+								"apiKeyExpirationDays": 100
+							}
+						}
+					],
+					"defaultAuthentication": {
+						"authenticationType": "AMAZON_COGNITO_USER_POOLS",
+						"userPoolConfig": {
+							"userPoolId": "authhappori76f9c2cf"
+						}
+					}
+				},
+				"GraphQLAPIIdOutput": "wa4q4y4jffa65l26c7dok2wixe",
+				"GraphQLAPIEndpointOutput": "https://mwyybrdbhfbzblcl5ixogc7nuy.appsync-api.eu-west-1.amazonaws.com/graphql",
+				"GraphQLAPIKeyOutput": "da2-zkq3pzyddvhtjl4jpaeobvzvuu"
+			},
+			"providerMetadata": {
+				"s3TemplateURL": "https://s3.amazonaws.com/amplify-happori-dev-223908-deployment/amplify-cfn-templates/api/cloudformation-template.json",
+				"logicalId": "apihapporiapi"
+			},
+			"lastPushTimeStamp": "2020-10-04T20:24:15.180Z",
+			"lastPushDirHash": "/gvaejA6+MQ27IVlbSWy8r8ZWRE="
+		},
+		"ecommerce": {
+			"service": "API Gateway",
+			"providerPlugin": "awscloudformation",
+			"dependsOn": [
+				{
+					"category": "function",
+					"resourceName": "restcheckout",
+					"attributes": [
+						"Name",
+						"Arn"
+					]
+				}
+			],
+			"providerMetadata": {
+				"s3TemplateURL": "https://s3.amazonaws.com/amplify-happori-dev-223908-deployment/amplify-cfn-templates/api/ecommerce-cloudformation-template.json",
+				"logicalId": "apiecommerce"
+			},
+			"lastPushTimeStamp": "2020-10-04T20:24:14.701Z",
+			"output": {
+				"ApiName": "ecommerce",
+				"RootUrl": "https://kog8211bs5.execute-api.eu-west-1.amazonaws.com/dev",
+				"ApiId": "kog8211bs5"
+			},
+			"lastPushDirHash": "OvckpP0tcwWWSoCLbmFpt2sRrC8="
+		}
+	}
+}

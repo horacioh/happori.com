@@ -47,7 +47,7 @@ exports.createPages = async ({ actions, graphql }) => {
     }
   `)
 
-  products.forEach(async (product) => {
+  products[process.env.GATSBY_ENV].forEach(async (product) => {
     const slug = slugify(product.name, { lower: true })
     const imageData = data[slug].childImageSharp.fluid
     createPage({

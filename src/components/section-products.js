@@ -1,8 +1,6 @@
 import React from "react"
 import slugify from "slugify"
 import Img from "gatsby-image"
-import { Storage } from "aws-amplify"
-import { useQuery } from "react-query"
 import { Section } from "./page-layout"
 import { Heading2 } from "./headings"
 import { Link, graphql, useStaticQuery } from "gatsby"
@@ -35,6 +33,8 @@ export function ProductsSection(props) {
       }
     }
   `)
+  console.log("ProductsSection -> data", data)
+  console.log("ProductsSection -> products", products)
 
   if (data) {
     return (
@@ -42,7 +42,7 @@ export function ProductsSection(props) {
         <Heading2 className="text-primary">Nuestros Productos</Heading2>
         <div className="py-12">
           <ul className="flex flex-col md:flex-row -mx-4">
-            {products.map((product) => {
+            {products[process.env.GATSBY_ENV].map((product) => {
               const url = `/productos/${product.slug}`
               return (
                 <li
