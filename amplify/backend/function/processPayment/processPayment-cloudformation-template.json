@@ -68,7 +68,7 @@
 				"Layers": [],
 				"Timeout": "25",
 				"Code": {
-					"S3Bucket": "amplify-happoricom-dev-222620-deployment",
+					"S3Bucket": "amplify-happoricom-main-235801-deployment",
 					"S3Key": "amplify-builds/processPayment-704e556a4c6e526c2b77-build.zip"
 				}
 			}
