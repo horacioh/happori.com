@@ -33,8 +33,6 @@ export function ProductsSection(props) {
       }
     }
   `)
-  console.log("ProductsSection -> data", data)
-  console.log("ProductsSection -> products", products)
 
   if (data) {
     return (
