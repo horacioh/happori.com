@@ -1,0 +1,16 @@
+type Product
+  @model
+  @auth(
+    rules: [
+      { allow: public, operations: [read] }
+      { allow: groups, groups: ["Admin"] }
+    ]
+  ) {
+  id: ID!
+  name: String!
+  description: String!
+  priceId: String!
+  price: Float!
+  image: String
+  currentInventory: Int!
+}

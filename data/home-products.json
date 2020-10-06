@@ -1,0 +1,42 @@
+{
+  "prod": [
+    {
+      "name": "Pachamama",
+      "slug": "pachamama",
+      "description": "La madre naturaleza es figura de deidad en muchas culturas. En la mitología Inca la simbolizan como la diosa de la fertilidad, la que siembra y cosecha bajo el nombre de la Pachamama. Una deidad de lo cotidiano que provee y protege facilitando la vida. Desde Argentina hasta Ecuador, muchos son los pueblos que veneran a esta Diosa. No es para menos, sin montañas, sin agua manando de sus manantiales, sin frutos creciendo de sus tierras, la humanidad no existiría. Estos calcetines 90% algodón orgánico no contaminante son todo un homenaje a Incas, Quechuas, Mapuches… a todos los pueblos indígenas de América del Sur que han agradecido a la madre naturaleza todo lo que nos ha dado.",
+      "sku": "price_1GzTnSLx7jivaev6IDuDJidK",
+      "price": 1450,
+      "currency": "EUR"
+    },
+    {
+      "name": "Tierra",
+      "slug": "tierra",
+      "description": "La tierra visible ocupa solamente el 29% de nuestro planeta y, sin embargo, ha sido en este pequeño territorio donde la humanidad ha prosperado. Le debemos mucho a este elemento pero, aún así, lejos de cuidar y agradecer, la explotamos y la maltratamos. Es hora de cambiar nuestros hábitos y respetarla como se merece. Este par de calcetines no solamente son un homenaje a la tierra sino también un alegato al respeto por ella al estar fabricados en un 90% de algodón orgánico no contaminante.",
+      "sku": "price_1GzTnpLx7jivaev6PIyLOFra",
+      "priceId": "price_1GzTnpLx7jivaev6PIyLOFra",
+      "price": 1450,
+      "currency": "EUR"
+    }
+  ],
+  "dev": [
+    {
+      "name": "Pachamama",
+      "slug": "pachamama",
+      "description": "La madre naturaleza es figura de deidad en muchas culturas. En la mitología Inca la simbolizan como la diosa de la fertilidad, la que siembra y cosecha bajo el nombre de la Pachamama. Una deidad de lo cotidiano que provee y protege facilitando la vida. Desde Argentina hasta Ecuador, muchos son los pueblos que veneran a esta Diosa. No es para menos, sin montañas, sin agua manando de sus manantiales, sin frutos creciendo de sus tierras, la humanidad no existiría. Estos calcetines 90% algodón orgánico no contaminante son todo un homenaje a Incas, Quechuas, Mapuches… a todos los pueblos indígenas de América del Sur que han agradecido a la madre naturaleza todo lo que nos ha dado.",
+      "sku": "price_1HZ0anLx7jivaev6xuz73cnQ",
+      "priceId": "price_1HZ0anLx7jivaev6xuz73cnQ",
+      "price": 1450,
+
+      "currency": "EUR"
+    },
+    {
+      "name": "Tierra",
+      "slug": "tierra",
+      "sku": "price_1HZ0b7Lx7jivaev6Ygz5nou7",
+      "description": "La tierra visible ocupa solamente el 29% de nuestro planeta y, sin embargo, ha sido en este pequeño territorio donde la humanidad ha prosperado. Le debemos mucho a este elemento pero, aún así, lejos de cuidar y agradecer, la explotamos y la maltratamos. Es hora de cambiar nuestros hábitos y respetarla como se merece. Este par de calcetines no solamente son un homenaje a la tierra sino también un alegato al respeto por ella al estar fabricados en un 90% de algodón orgánico no contaminante.",
+      "priceId": "price_1HZ0b7Lx7jivaev6Ygz5nou7",
+      "price": 1450,
+      "currency": "EUR"
+    }
+  ]
+}

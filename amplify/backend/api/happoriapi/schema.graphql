@@ -1,0 +1,13 @@
+type Product @model {
+  id: ID!
+  name: String!
+  description: String!
+  priceId: String!
+  price: Float!
+  image: String
+  currentInventory: Int!
+}
+
+type Mutation {
+  processPayment(input: String!): String @function(name: "processPayment-${env}")
+}

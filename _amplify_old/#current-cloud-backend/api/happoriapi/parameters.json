@@ -1,0 +1,11 @@
+{
+    "AppSyncApiName": "happoriapi",
+    "DynamoDBBillingMode": "PAY_PER_REQUEST",
+    "DynamoDBEnableServerSideEncryption": "false",
+    "AuthCognitoUserPoolId": {
+        "Fn::GetAtt": [
+            "authhappori76f9c2cf",
+            "Outputs.UserPoolId"
+        ]
+    }
+}
