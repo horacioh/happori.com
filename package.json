@@ -65,5 +65,8 @@
   },
   "bugs": {
     "url": "https://github.com/horacioh/happori.com/issues"
+  },
+  "engines": {
+    "node": ">=13.7.0"
   }
 }
