@@ -6,7 +6,7 @@ export default function LandingForm() {
   const { register, handleSubmit, errors } = useForm()
 
   async function onSubmit(data) {
-    await fetch("https://api.formik.com/submit/happoricom/landing-page", {
+    await fetch("https://api.formium.io/submit/5e8f85371cf69f00017474bd/landing-page", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
